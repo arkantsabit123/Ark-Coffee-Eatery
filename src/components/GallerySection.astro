@@ -15,7 +15,7 @@ import SectionHeading from './SectionHeading.astro';
         <figure id={slot.id} class="overflow-hidden rounded-2xl border border-ark-cream/15 bg-white/10">
           <img
             class="aspect-[4/3] w-full object-cover"
-            src={slot.image}
+            src={`${import.meta.env.BASE_URL}${slot.image}`}
             alt={slot.label}
             width="800"
             height="600"

@@ -1,5 +1,6 @@
 <!-- ARK DOCUMENTATION V2.0 — AUTHORITATIVE RULES BELOW TAKE PRECEDENCE OVER LEGACY V1 EXAMPLES -->
-> **Version 2.0 | Status: Specification Ready — local frontend implemented; production NOT verified. See `verification-checklist.md` for evidence.**
+> **Version 2.0 | Status: Local implementation documented; production deployment pending. See `verification-checklist.md` for evidence.**
+> **Implementation update:** Current package versions and commands are implemented in `package.json`; use static deployment until a serverless reservation architecture is separately approved. Canonical address data is maintained in `src/data/site.ts`.
 > **Important:** The original v1 content is retained for detailed historical requirements. Any conflicting v1 commands, example code, numerical targets, business claims, or deployment statements are superseded by the **V2 normative amendments** at the end of this file, and by `docs/README.md`. Do not copy legacy Apps Script browser `fetch()` examples into production. `Production Ready` references in the retained historical sections do not describe the actual release state.
 > **Source:** User-provided v1 file `Cheatsheet.md`. New v2 requirements are proposed engineering improvements, not verified facts about the business.
 
@@ -15,7 +16,7 @@
 |----------|-------|
 | Version | 1.0.0 |
 | Last Updated | 2026-11-17 |
-| Status | Production Ready |
+| Status | Local implementation documented; production deployment pending |
 | Owner | Ark Coffee & Eatery |
 | Companion Docs | `blueprint.md`, `design-system.md`, `content-guide.md`, `deployment-guide.md` |
 

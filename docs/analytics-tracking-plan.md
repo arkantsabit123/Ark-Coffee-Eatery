@@ -1,6 +1,12 @@
 # Analytics Tracking Plan v2.0 — Ark Coffee & Eatery
 
-**Status:** EVENT SCHEMA PROPOSED; no live measurement verified.
+**Status:** EVENT SCHEMA DOCUMENTED; analytics is inactive and no live measurement is enabled.
+
+## 2026-11-18 implementation update
+- No GA4 measurement ID is configured.
+- No analytics script or tracking payload is included in the build.
+- WhatsApp links do not transmit names, phones, notes, or other personal data.
+- Enable analytics only after owner approval, privacy/consent review, and a production domain decision.
 
 ## Objective and privacy
 Measure menu engagement and conversion intent without collecting personal data. GA4 measurement ID requires owner approval and privacy/consent review. Never transmit phone numbers, names, free-text notes, exact reservation payloads, or other PII.

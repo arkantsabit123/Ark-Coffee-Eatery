@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <rect width="1440" height="900" fill="#f5e6d3"/>
+  <text x="720" y="110" text-anchor="middle" fill="#4a2c2a" font-family="Georgia" font-size="54">Signature Menu</text>
+  <g fill="#fdf8f3" stroke="#d6d3d1">
+    <rect x="110" y="180" width="580" height="270" rx="20"/>
+    <rect x="750" y="180" width="580" height="270" rx="20"/>
+    <rect x="110" y="490" width="580" height="270" rx="20"/>
+    <rect x="750" y="490" width="580" height="270" rx="20"/>
+  </g>
+  <g fill="#4a2c2a" font-family="Arial" font-size="28" font-weight="700">
+    <text x="160" y="230">Coffee</text><text x="800" y="230">Non-Coffee</text>
+    <text x="160" y="540">Main Course</text><text x="800" y="540">Pastry</text>
+  </g>
+  <text x="720" y="840" text-anchor="middle" fill="#78716c" font-family="Arial" font-size="22">Menu Screenshot Placeholder</text>
+</svg>

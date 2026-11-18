@@ -1,6 +1,14 @@
 # Test Plan v2.0 — Ark Coffee & Eatery
 
-**Status:** Test design; the local static checks that have run are recorded in `verification-checklist.md`. Reservation, staging, and production scenarios remain unexecuted.
+**Status:** UPDATED IMPLEMENTATION TEST PLAN. Local static checks are recorded in `verification-checklist.md`. Reservation backend, staging, deployed browser, and production scenarios remain unexecuted because hosting and live storage are intentionally inactive.
+
+## 2026-11-18 implementation evidence
+- `npm run check`: pass with 0 diagnostics.
+- `npm run build`: pass with 2 static routes.
+- `npm run test`: pass with 5 static acceptance tests.
+- Browser: no horizontal overflow checked at 320, 375, 768, 1024, and 1440 px.
+- Browser: all 22 page image elements load after scrolling.
+- Remaining P0 integrations require real staging or production evidence.
 
 ## Strategy
 Unit: validation, data transforms, CTA URL generation. Integration: API -> Apps Script/storage, idempotency, notification failure. E2E: browser -> API -> Sheet and confirmation UX. Manual: visual, screen reader, responsive, cross-browser, owner content approval. Production: smoke tests using approved safe test data.

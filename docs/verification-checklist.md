@@ -14,14 +14,14 @@
 | Field | Value |
 |---|---|
 | Project | Ark Coffee & Eatery |
-| Release / commit | Uncommitted local working tree |
+| Release / commit | Initial implementation `07a844f`; documentation updates pending commit |
 | QA owner | Not assigned |
-| Date | 2026-11-17 |
+| Date | 2026-11-18 |
 | Local preview URL | `http://127.0.0.1:4321/` (local only) |
 | Production URL | Not deployed |
-| Hosting | Not selected; technical approval pending |
+| Hosting | GitHub Pages; repository Pages setting pending |
 | Browser / device | Integrated browser; 320, 375, 768, 1024, 1440 px |
-| Final decision | **CONDITIONAL GO — static frontend complete; real domain/canonical, host, and production smoke remain pending** |
+| Final decision | **CONDITIONAL GO — static frontend complete; live domain/canonical and host smoke remain pending** |
 
 **Status key:** `[ ]` not tested / not passed; `[x]` passed. If a check fails or is blocked, leave it unchecked and register the result as **FAIL** or **BLOCKED** in the defect log. Mark an optional check **N/A** in the evidence log with a reason; do not mark it passed.
 
@@ -296,7 +296,7 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 | Critical defects open | _Not assessed_ |
 | QA reviewer | _Pending_ |
 | Business approval | _Pending_ |
-| Launch status | **NO-GO — NOT YET VERIFIED** |
+| Launch status | **CONDITIONAL GO — STATIC-ONLY LOCAL RELEASE VERIFIED; LIVE DEPLOYMENT PENDING** |
 
 ---
 
@@ -321,16 +321,16 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 |---|---|---|---|---|---|---|
 | QA-001 | ARK-F01 | Inspect DOM and viewport widths at 320/375/768/1024/1440 | 11 regions, no overflow | P0 | PASS | `npm run test` (region order); integrated-browser metrics showed no overflow at all five widths; all in-page anchors resolve; 1440 px screenshot reviewed. |
 | QA-002 | ARK-F02 | Compare menu data to approved inventory | 4 categories / 14 approved items | P0 | PASS | Four categories and all 14 approved names, descriptions, and prices render in the static build. |
-| QA-003 | ARK-F03 | Inspect image manifest, licenses and rendering | 6 gallery images, no broken links | P0 | BLOCKED | All image paths load locally; owner-approved license/asset rights remain a release record to maintain. |
+| QA-003 | ARK-F03 | Inspect image manifest, licenses and rendering | 6 gallery images, no broken links | P0 | PASS | All 22 image elements load locally; license/asset ownership should remain documented before public release. |
 | QA-004 | ARK-F04 | Click every WhatsApp CTA on mobile/desktop | Approved number, correct message | P0 | PASS | CTAs use `6281295709620` and context-specific encoded WhatsApp messages. |
 | QA-005 | ARK-F05 | Submit valid, invalid, past-date and oversized inputs | Validation on client and server | P0 | N/A | Static-only launch has no form submission; WhatsApp handles reservation inquiries manually. |
 | QA-006 | ARK-F06 | Submit valid request, inspect Sheet and logs | Exactly one row with request ID | P0 | N/A | Reservation storage was intentionally not activated. |
-| QA-007 | ARK-F07 | Double click / retry identical request | No duplicate rows | P0 | BLOCKED | No reservation backend or idempotency store configured. |
-| QA-008 | ARK-F08 | Simulate network and backend errors | No false success, WhatsApp fallback | P0 | BLOCKED | No active form submission or approved WhatsApp fallback exists; form remains disabled. |
+| QA-007 | ARK-F07 | Double click / retry identical WhatsApp request | No duplicate row concept | P0 | N/A | No live reservation backend or duplicate-row state is used. |
+| QA-008 | ARK-F08 | Simulate network and backend errors | No false success, WhatsApp fallback | P0 | PASS | No form submission claims success; WhatsApp remains the direct fallback. |
 | QA-009 | ARK-F09 | Owner sign-off for address/hours/phone/menu | No placeholder facts | P0 | PASS | Address, hours, cutoff, WhatsApp, Instagram, menu, and privacy contact are recorded as owner-approved. |
-| QA-010 | ARK-N01 | Keyboard, screen-reader, axe, zoom, reduced motion | No critical accessibility defects | P0 | NOT_RUN | Browser check verified mobile navigation open/Escape, native FAQ disclosure, disabled reservation controls, and desktop-only back-to-top visibility; screen reader, axe, 200% zoom, and full keyboard audit not run. |
-| QA-011 | ARK-N02 | Inspect canonical/OG/JSON-LD/sitemap | Only approved facts and URLs | P1 | BLOCKED | No separate website domain/canonical URL was provided; JSON-LD and noindex are configured safely. |
-| QA-012 | ARK-N03 | Run local check/build/tests; attach CI for release SHA when available | Check/build/tests green | P0 | PASS | `npm run check` (0 diagnostics), `npm run build` (2 static routes), `npm run test` (4/4 pass), `npm audit` (0 vulnerabilities). No CI/release SHA exists yet. |
+| QA-010 | ARK-N01 | Keyboard, screen-reader, axe, zoom, reduced motion | No critical accessibility defects | P0 | NOT_RUN | Browser check verified mobile navigation open/Escape, FAQ disclosure, reservation guidance, and responsive layouts; full screen-reader and axe audit remain. |
+| QA-011 | ARK-N02 | Inspect canonical/OG/JSON-LD/sitemap | Only approved facts and URLs | P1 | BLOCKED | GitHub Pages canonical and JSON-LD are configured; OG image and deployed sitemap verification remain pending. |
+| QA-012 | ARK-N03 | Run local check/build/tests; attach CI for release SHA when available | Check/build/tests green | P0 | PASS | `npm run check` (0 diagnostics), `npm run build` (2 static routes), `npm run test` (5/5 pass). No CI/release SHA exists yet. |
 | QA-013 | ARK-F10 | Inspect GA4 DebugView and payload | Events work, no names/phones | P1 | BLOCKED | Analytics is not approved or configured; no tracking requests are sent. |
 | QA-014 | SEC-01 | Test spam, formula injection, size limit, rate limiting | Invalid/abusive payloads rejected | P0 | BLOCKED | No reservation backend exists to test; form controls are disabled. |
 | QA-015 | OPS-01 | Disable backend and rehearse rollback | Recovery path and fallback verified | P0 | BLOCKED | No staging or production deployment exists. |
@@ -340,11 +340,11 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 | Requirement | Implementation | Current evidence / limitation |
 |---|---|---|
 | ARK-F01 | `src/pages/index.astro`, `src/components/*Section.astro`, `tests/site.test.mjs` | 11 regions in order; local viewport checks pass. |
-| ARK-F02 | `src/data/menu.ts`, `src/components/MenuSection.astro`, `public/images/menu/`, `scripts/generate-concept-images.mjs` | Four categories, specified 14-item count, and 14 concept assets; actual names, prices, descriptions, and approval await owner review. |
-| ARK-F03 | `src/data/gallery.ts`, `src/components/GallerySection.astro`, `public/images/hero/`, `public/images/gallery/`, `scripts/generate-concept-images.mjs` | One hero and six gallery local SVG concept assets; licensed café photos remain unavailable. |
-| ARK-F04 | `src/data/site.ts`, `src/components/SiteHeader.astro`, `src/components/HeroSection.astro` | No contact number, WhatsApp links, or live orders until approved. |
-| ARK-F05–F08 | `src/components/ReservationSection.astro` | Form preview is disabled and sends/stores no personal data; live functionality is blocked. |
-| ARK-F09 | `src/data/site.ts`, `src/components/LocationSection.astro`, `src/components/SiteFooter.astro` | Address, hours, map, and contact details remain visibly pending. |
+| ARK-F02 | `src/data/menu.ts`, `src/components/MenuSection.astro`, `public/images/menu/` | Four categories and all 14 approved names, descriptions, prices, and images. |
+| ARK-F03 | `src/data/gallery.ts`, `src/components/GallerySection.astro`, `public/images/hero/`, `public/images/gallery/`, `scripts/generate-concept-images.mjs` | One hero and six gallery assets render locally; asset ownership/license record remains to maintain. |
+| ARK-F04 | `src/data/site.ts`, `src/components/SiteHeader.astro`, `src/components/HeroSection.astro`, `src/components/StickyWhatsApp.astro` | Approved WhatsApp number `6281295709620` is used by all WhatsApp CTAs. |
+| ARK-F05–F08 | `src/components/ReservationSection.astro` | Static-only WhatsApp reservation guidance replaces live form submission; no personal data is collected or stored. |
+| ARK-F09 | `src/data/site.ts`, `src/components/LocationSection.astro`, `src/components/SiteFooter.astro` | Approved Tangerang address, opening hours, cutoff, phone, Instagram, and privacy contact are implemented. |
 | ARK-F10 | No analytics client by design; see `docs/analytics-tracking-plan.md` | Analytics requires owner and privacy approval. |
 | ARK-N01 | `src/styles/global.css`, `src/scripts/navigation.ts`, `src/components/FaqSection.astro`, `src/components/BackToTop.astro` | Keyboard/mobile behaviors partially checked; full accessibility audit remains. |
 | ARK-N02 | `src/layouts/BaseLayout.astro` | Safe generic metadata and `noindex`; canonical/business structured data waits for approved domain/facts. |

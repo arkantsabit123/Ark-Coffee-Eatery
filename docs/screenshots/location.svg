@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <rect width="1440" height="900" fill="#fdf8f3"/>
+  <text x="110" y="150" fill="#4a2c2a" font-family="Georgia" font-size="54">Plan your visit</text>
+  <rect x="110" y="220" width="540" height="420" rx="24" fill="#fff" stroke="#d6d3d1"/>
+  <text x="150" y="300" fill="#79513d" font-family="Arial" font-size="18">OPENING HOURS</text>
+  <text x="150" y="360" fill="#4a2c2a" font-family="Arial" font-size="32">Every day, 07:00–22:00</text>
+  <rect x="720" y="220" width="610" height="420" rx="24" fill="#f5e6d3"/>
+  <text x="1025" y="430" text-anchor="middle" fill="#4a2c2a" font-family="Arial" font-size="30">Google Maps</text>
+  <text x="720" y="790" text-anchor="middle" fill="#78716c" font-family="Arial" font-size="22">Location Screenshot Placeholder</text>
+</svg>

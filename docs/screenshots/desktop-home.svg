@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
+  <rect width="1440" height="900" fill="#fdf8f3"/>
+  <rect x="90" y="70" width="1260" height="760" rx="24" fill="#fff" stroke="#d6d3d1"/>
+  <rect x="90" y="70" width="1260" height="82" rx="24" fill="#f5e6d3"/>
+  <text x="140" y="122" fill="#4a2c2a" font-family="Arial" font-size="26" font-weight="700">Ark Coffee &amp; Eatery</text>
+  <rect x="980" y="96" width="130" height="44" rx="22" fill="#4a2c2a"/>
+  <rect x="1125" y="96" width="150" height="44" rx="22" fill="#25d366"/>
+  <text x="178" y="300" fill="#4a2c2a" font-family="Georgia" font-size="72">Specialty coffee,</text>
+  <text x="178" y="378" fill="#4a2c2a" font-family="Georgia" font-size="72">comfort food</text>
+  <rect x="178" y="430" width="210" height="54" rx="27" fill="#25d366"/>
+  <rect x="410" y="430" width="180" height="54" rx="27" fill="#fff" stroke="#4a2c2a"/>
+  <rect x="820" y="210" width="430" height="440" rx="28" fill="#c79a73"/>
+  <text x="720" y="790" text-anchor="middle" fill="#78716c" font-family="Arial" font-size="22">Desktop Home Screenshot Placeholder</text>
+</svg>

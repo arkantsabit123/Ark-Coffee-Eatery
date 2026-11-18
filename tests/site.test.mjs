@@ -42,12 +42,13 @@ test('uses the approved WhatsApp number and does not activate data collection', 
   assert.match(html, /application\/ld\+json/i);
 });
 
-test('uses descriptive preview metadata without indexing unapproved content', () => {
+test('uses descriptive public metadata and canonical GitHub Pages URL', () => {
   const description = html.match(/<meta name="description" content="([^"]+)"/i)?.[1];
 
   assert.ok(description);
   assert.ok(description.length >= 120 && description.length <= 160);
-  assert.match(html, /<meta name="robots" content="noindex, nofollow"/i);
+  assert.match(html, /<meta name="robots" content="index, follow"/i);
+  assert.match(html, /rel="canonical" href="https:\/\/arkantsabit123\.github\.io\/Ark-Coffee-Eatery\/"/i);
 });
 
 test('uses the approved About Ark copy', () => {
@@ -55,4 +56,12 @@ test('uses the approved About Ark copy', () => {
   assert.match(html, /We look forward to welcoming you/i);
   assert.match(html, /Ark Coffee &amp; Eatery is where specialty coffee meets comfort food/i);
   assert.match(html, /Explore the menu, check our opening hours/i);
+});
+
+test('shows the approved reservation and cancellation policy', () => {
+  assert.match(html, /no later than 1 day before arrival/i);
+  assert.match(html, /50% down payment/i);
+  assert.match(html, /prices include tax/i);
+  assert.match(html, /down payment is forfeited/i);
+  assert.equal((html.match(/<details class=/g) ?? []).length, 5);
 });

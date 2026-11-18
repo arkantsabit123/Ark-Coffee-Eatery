@@ -1,6 +1,6 @@
 # Ark Coffee & Eatery — Documentation System v2.0
 
-**Status:** SPECIFICATION_READY, **not** production verified. A static frontend preview now exists; its local check, build, and tests are recorded in `verification-checklist.md`. **Date:** 2026-11-17. **Audience:** developers, designers, content owners, and AI coding agents.
+**Status:** IMPLEMENTATION_READY for local/static preview; **not production verified**. The Astro frontend, approved facts, menu, gallery assets, WhatsApp links, and verification evidence have been implemented. **Date:** 2026-11-18. **Audience:** developers, designers, content owners, and AI coding agents.
 
 ## Purpose and source
 This documentation package upgrades the six user-supplied v1 Markdown files, preserving their full legacy details and adding **normative v2 amendments**. The amendments are engineering recommendations and must not be confused with validated facts or running code.
@@ -36,13 +36,13 @@ Requirement IDs traced to implementation, code check/build/test pass, real brows
 ## Open approvals (blocking where relevant)
 | ID | Approval required | Owner | Status |
 |---|---|---|---|
-| FACT-01 | Address, opening hours and booking cutoff | Business owner | APPROVED |
-| FACT-02 | Website domain, Instagram, email, and privacy contact | Business owner | PARTIAL — Instagram approved; no separate website domain/canonical URL provided |
-| FACT-03 | Menu names/prices/ingredients and authentic image rights | Business owner | APPROVED |
+| FACT-01 | Address, opening hours and booking cutoff | Business owner | APPROVED — Tangerang address; 07:00–22:00; cutoff 20:00 |
+| FACT-02 | Website domain, Instagram, email, and privacy contact | Business owner | PARTIAL — Instagram and email approved; no separate website domain/canonical URL provided |
+| FACT-03 | Menu names/prices/ingredients and authentic image rights | Business owner | APPROVED — asset licenses should remain documented |
 | FACT-04 | Testimonials, rating and customer-count proof | Business owner | OMITTED — no proof supplied |
 | TECH-01 | Hosting and reservation API design | Technical owner | DECIDED — static-only, backend disabled |
 | TECH-02 | Astro/Tailwind/Node version and support review | Project request / technical owner | ACCEPTED for local implementation in ADR-005; revalidate before release |
-| OPS-01 | Data retention, deletion, abuse monitoring and alert owner | Business + technical owner | PARTIAL — 12-month retention approved; implementation owner/deletion process pending |
+| OPS-01 | Data retention, deletion, abuse monitoring and alert owner | Business + technical owner | PARTIAL — 12-month retention approved; WhatsApp staff and deletion process pending |
 
 ## Deliverables
 The repository includes the specifications and a local Astro/Tailwind static preview. Local type checking, production build, static tests, dependency audit, and selected browser checks have been executed; evidence is in `verification-checklist.md`. Business approval, reservation backend, analytics, staging, deployment, and production verification have not been completed.

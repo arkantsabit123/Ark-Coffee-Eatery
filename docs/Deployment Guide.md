@@ -1,5 +1,7 @@
 # Deployment Guide v1.0.0 — Ark Coffee & Eatery
 
+> **Legacy notice:** This file preserves the original deployment instructions. Use `docs/deployment-guide.md` for the implemented static-only and v2 serverless rules.
+
 **Step-by-step deployment guide for the Ark Coffee & Eatery website.** This document walks through everything from local setup to a live site: Google Apps Script backend, Vercel/Netlify hosting, custom domain, and post-deploy verification.
 
 ---
@@ -10,7 +12,7 @@
 |----------|-------|
 | Version | 1.0.0 |
 | Last Updated | 2026-11-17 |
-| Status | Production Ready |
+| Status | Legacy v1 reference only |
 | Owner | Ark Coffee & Eatery |
 | Companion Docs | `blueprint.md`, `design-system.md`, `content-guide.md`, `cheatsheets.md` |
 

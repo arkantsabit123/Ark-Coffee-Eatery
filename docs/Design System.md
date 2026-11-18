@@ -1,5 +1,7 @@
 # Design System v1.0.0 — Ark Coffee & Eatery
 
+> **Legacy notice:** This file preserves the original design reference. Use `docs/design-system.md` and the current Tailwind implementation for the v2 visual system.
+
 **A complete visual and interaction reference for the Ark Coffee & Eatery website.** This document defines the design tokens, typography, spacing, color palette, component styles, motion rules, and layout grid that make up the site's visual language — so every section stays consistent, warm, and inviting.
 
 ---
@@ -10,7 +12,7 @@
 |----------|-------|
 | Version | 1.0.0 |
 | Last Updated | 2026-11-17 |
-| Status | Production Ready |
+| Status | Legacy v1 reference only |
 | Owner | Ark Coffee & Eatery |
 | Companion Docs | `blueprint.md`, `content-guide.md`, `cheatsheets.md`, `deployment-guide.md` |
 | Framework | Astro 4.x + Tailwind CSS 3.4 |

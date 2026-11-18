@@ -33,6 +33,9 @@ const localBusiness = {
   }],
   sameAs: [site.instagramUrl],
 };
+
+const canonicalUrl = 'https://arkantsabit123.github.io/Ark-Coffee-Eatery/';
+const faviconUrl = `${import.meta.env.BASE_URL}favicon.jpg`;
 ---
 
 <!doctype html>
@@ -42,9 +45,10 @@ const localBusiness = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#fdf8f3" />
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/jpeg" href={faviconUrl} />
     <script type="application/ld+json" set:html={JSON.stringify(localBusiness)}></script>
     <title>{title}</title>
   </head>

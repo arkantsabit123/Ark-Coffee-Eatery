@@ -15,6 +15,11 @@ import { site } from '../data/site';
         Reservation inquiries received through WhatsApp are retained according to the approved {site.reservationRetention} retention period.
         Requests received after {site.bookingCutoff} are for a later time.
       </p>
+      <div class="mt-5 max-w-md rounded-xl border border-ark-amber/20 bg-ark-amber-light/60 p-4 text-sm leading-6 text-stone-700">
+        Reservations must be requested no later than 1 day before arrival.
+        A 50% down payment of the ordered food and beverage value is required. The prices include tax.
+        The down payment is forfeited if the reservation is cancelled.
+      </div>
       <a
         class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-ark-whatsapp px-6 py-3 font-semibold text-white"
         href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hello Ark Coffee & Eatery, I would like to request a table reservation.')}`}

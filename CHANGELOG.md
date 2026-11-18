@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — 2026-11-18 documentation and release preview
+- Configured the Astro project base and canonical URL for GitHub Pages.
+- Added a GitHub Actions deployment workflow for pushes to `main`.
+- Added 7 SVG README screenshot placeholders and live preview documentation.
+- Added concise reservation policy copy for H-1 requests, 50% down payment, tax inclusion, and forfeited cancellation payment.
+- Updated all repository-facing project documentation to reflect the implemented Astro frontend and static-only WhatsApp release decision.
+- Updated the Tangerang address, opening hours, concise About copy, 14-item menu, WhatsApp, Instagram, retention, and release documentation.
+- Reworked the root README with preview asset tables, image descriptions, feature summaries, setup commands, status, and documentation links.
+- Marked legacy duplicate docs as historical references and retained v2 files as the normative implementation source.
+- No deployment or GitHub publishing was performed as part of this documentation update.
+
 ## Unreleased — Local website implementation
 - Replaced placeholder business copy and menu placeholders with owner-approved address, opening hours, WhatsApp, Instagram, menu names, descriptions, and prices.
 - Added 14-item menu cards, a functional WhatsApp reservation CTA, footer contacts, approved-hours/location copy, JSON-LD business data, and a mobile sticky WhatsApp button.

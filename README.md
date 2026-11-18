@@ -1,24 +1,111 @@
-# Ark Coffee & Eatery
+<h1 align="center">Ark Coffee &amp; Eatery</h1>
 
-A static, single-page Astro website preview built from the v2.0 project specifications. Business facts, menu details, contact links, and photography remain visibly pending owner approval; no live reservation service or analytics is configured.
+<p align="center">
+  A warm, responsive, static Astro website for specialty coffee and comfort food.
+</p>
 
-## Requirements
+<p align="center">
+  <img src="https://img.shields.io/badge/local_build-passing-success" alt="Local build status" />
+  <a target="_blank" href="https://astro.build/">
+    <img src="https://img.shields.io/static/v1?label=ASTRO&amp;message=7.4.12&amp;color=000&amp;logo=astro" alt="Astro version" />
+  </a>
+  <a target="_blank" href="https://tailwindcss.com/">
+    <img src="https://img.shields.io/static/v1?label=TAILWIND&amp;message=4.3.5&amp;color=38BDF8&amp;logo=tailwindcss" alt="Tailwind CSS version" />
+  </a>
+  <a href="./LICENSE">
+    <img src="https://img.shields.io/github/license/arkantsabit123/Ark-Coffee-Eatery" alt="License" />
+  </a>
+</p>
 
-- Node.js `>=22.23.4` (the installed Node.js `24.11.1` was used for validation)
+> **Live preview:** [https://arkantsabit123.github.io/Ark-Coffee-Eatery/](https://arkantsabit123.github.io/Ark-Coffee-Eatery/)
+
+## Website Preview
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="./docs/screenshots/desktop-home.svg" alt="Desktop home screenshot placeholder" width="100%" />
+      <b>Desktop Home</b><br/>
+      Full-width hero layout with approved navigation, heading, WhatsApp CTA, menu CTA, and hero image.
+    </td>
+    <td align="center" width="50%">
+      <img src="./docs/screenshots/mobile-home.svg" alt="Mobile home screenshot placeholder" width="100%" />
+      <b>Mobile Home</b><br/>
+      Mobile-first hero layout with the hamburger menu and touch-friendly actions.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="./docs/screenshots/menu.svg" alt="Menu screenshot placeholder" width="100%" />
+      <b>Menu</b><br/>
+      14 approved items across coffee, non-coffee, main course, and pastry categories.
+    </td>
+    <td align="center" width="50%">
+      <img src="./docs/screenshots/gallery.svg" alt="Gallery screenshot placeholder" width="100%" />
+      <b>Gallery</b><br/>
+      Six visual slots for exterior, interior, coffee preparation, food, seating, and guests.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="./docs/screenshots/location.svg" alt="Location and hours screenshot placeholder" width="100%" />
+      <b>Location &amp; Hours</b><br/>
+      Approved Tangerang address, opening hours, and Google Maps action.
+    </td>
+    <td align="center" width="50%">
+      <img src="./docs/screenshots/faq.svg" alt="FAQ screenshot placeholder" width="100%" />
+      <b>FAQ</b><br/>
+      Address, opening hours, menu, reservation, and contact answers.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <img src="./docs/screenshots/reservation.svg" alt="Reservation screenshot placeholder" width="70%" />
+      <b>Reservation &amp; WhatsApp</b><br/>
+      WhatsApp reservation guidance with the 1-day request deadline, 50% down payment, tax, and cancellation policy.
+    </td>
+  </tr>
+</table>
+
+## Key Features
+
+- 11 responsive page sections
+- 14-item data-driven menu
+- Six-item gallery
+- WhatsApp-first conversion
+- Accessible mobile navigation
+- FAQ accordion
+- Google Maps directions
+- LocalBusiness structured data
+- Static output with no live reservation data collection
+- Mobile sticky WhatsApp button
+- 404 page
+
+## Technology
+
+- Astro `7.4.12`
+- Tailwind CSS `4.3.5`
+- TypeScript `6.0.2`
+- Static Astro output
+- Node.js `>=22.23.4`
+
+## Local Setup
+
+### Requirements
+
+- Node.js `>=22.23.4`
 - npm `>=9.6.5`
 
-Astro and Tailwind dependencies are pinned in `package.json` and `package-lock.json`. The implementation uses Astro `7.4.12` with Tailwind CSS `4.3.5`.
-
-## Local development
+### Run Locally
 
 ```powershell
 npm install
 npm run dev
 ```
 
-Open the local URL printed by Astro, normally `http://localhost:4321`.
+Open `http://localhost:4321`.
 
-## Checks and production preview
+### Validate and Preview
 
 ```powershell
 npm run check
@@ -27,18 +114,54 @@ npm run test
 npm run preview
 ```
 
-`npm run test` checks the generated static output, so run `npm run build` first. The production files are written to `dist/`.
+`npm run test` reads the generated `dist/index.html`, so run `npm run build` first.
 
-## Current implementation boundaries
+## Image Assets
 
-- All 11 documented page regions render with the approved Tangerang address, opening hours, WhatsApp number, Instagram account, 14-item menu, and 21 image assets.
-- WhatsApp is enabled for menu and reservation inquiries.
-- Reservation data collection remains disabled because static-only hosting was selected. The reservation section provides WhatsApp guidance and does not simulate a confirmed booking.
-- Analytics is disabled. A LocalBusiness-style structured-data block uses only approved business facts.
-- The site remains `noindex` until a real production website domain and canonical URL are configured.
+The image directory is organized as follows:
 
-See [docs/verification-checklist.md](./docs/verification-checklist.md) for test evidence and blockers, [docs/architecture-decisions.md](./docs/architecture-decisions.md) for technical decisions, and [docs/deployment-guide.md](./docs/deployment-guide.md) for production gates.
+```text
+public/
+├── favicon.jpg
+└── images/
+    ├── hero/hero-cafe.jpg
+    ├── menu/
+    │   ├── coffee/
+    │   ├── non-coffee/
+    │   ├── main-course/
+    │   └── pastry/
+    └── gallery/
+```
 
-## Production release
+Image descriptions and replacement guidance are maintained in [docs/design-system.md](./docs/design-system.md).
 
-The static-only release is ready for a static host preview after final browser QA. A reservation backend, paid hosting setup, custom website domain, analytics, deployment, and GitHub publishing remain approval/execution gates. Do not claim a confirmed reservation: WhatsApp staff confirmation is required.
+## Project Status
+
+| Area | Status |
+|---|---|
+| Responsive frontend | Implemented |
+| Approved business facts | Implemented |
+| 14-item menu | Implemented |
+| WhatsApp interactions | Implemented |
+| Reservation backend | Not active; static-only release |
+| Analytics | Not active |
+| GitHub Pages deployment | Workflow included; repository Pages setting required |
+| Production domain | Not required for initial GitHub Pages release |
+| Canonical URL | GitHub Pages project URL configured |
+| Production smoke test | Pending after deployment |
+
+## Documentation
+
+- [Project specification](./docs/README.md)
+- [Architecture decisions](./docs/architecture-decisions.md)
+- [Blueprint](./docs/blueprint.md)
+- [Design system](./docs/design-system.md)
+- [Content guide](./docs/content-guide.md)
+- [Deployment guide](./docs/deployment-guide.md)
+- [Test plan](./docs/test-plan.md)
+- [Verification checklist](./docs/verification-checklist.md)
+- [Operations runbook](./docs/operations-runbook.md)
+
+## License
+
+See [LICENSE](./LICENSE).

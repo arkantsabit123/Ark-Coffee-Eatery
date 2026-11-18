@@ -1,5 +1,7 @@
 # Content Guide v1.0.0 — Ark Coffee & Eatery
 
+> **Legacy notice:** This file preserves the original user-provided content for historical reference. Use `docs/content-guide.md` and `docs/README.md` for the implemented v2 copy rules.
+
 **A practical writing and content reference for the Ark Coffee & Eatery website.** This guide defines every word, headline, label, and message that appears on the site — so copy can be written, reviewed, and shipped without guessing. It governs **what** the page says; the blueprint governs **how** it's built.
 
 ---
@@ -10,7 +12,7 @@
 |----------|-------|
 | Version | 1.0.0 |
 | Last Updated | 2026-11-17 |
-| Status | Production Ready |
+| Status | Legacy v1 reference only |
 | Owner | Ark Coffee & Eatery |
 | Companion Docs | `blueprint.md`, `design-system.md`, `cheatsheets.md`, `deployment-guide.md` |
 | Applies To | All on-page copy, menu descriptions, form labels, meta tags, and system messages |

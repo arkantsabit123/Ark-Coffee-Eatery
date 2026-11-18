@@ -14,6 +14,12 @@ import { site } from '../data/site';
         <a href={site.instagramUrl} target="_blank" rel="noopener noreferrer">Instagram</a>
         <a href={`mailto:${site.ownerEmail}`}>Email</a>
       </div>
+      <p class="mt-4 max-w-2xl text-xs leading-5 text-stone-500">
+        Reservation policy: requests must be submitted no later than 1 day before arrival.
+        A 50% down payment is required for the ordered food and beverage value, including tax.
+        Cancellation forfeits the down payment. Reservation inquiries are retained for 12 months.
+        Privacy contact: {site.privacyContact}.
+      </p>
     </div>
     <p class="text-sm text-stone-500">&copy; {new Date().getFullYear()} {site.name}</p>
   </div>
