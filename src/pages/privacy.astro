@@ -10,31 +10,34 @@ import { site } from '../data/site';
       <h1 class="display-heading mt-3 text-4xl text-ark-brown md:text-5xl">Reservation privacy policy</h1>
       <p class="mt-6 leading-8 text-stone-700">
         Ark Coffee &amp; Eatery uses WhatsApp for reservation inquiries. A submitted WhatsApp conversation may contain your name,
-        phone number, preferred date and time, party size, seating notes, and order details.
+        phone number, preferred date and time, party size, and order details. The local reservation prototype is available only in development,
+        uses synthetic test data in temporary memory, and sends nothing to the café.
       </p>
 
       <h2 class="mt-10 text-2xl font-semibold text-ark-brown">What we collect</h2>
       <p class="mt-3 leading-8 text-stone-700">
         We collect only the reservation and contact information that you choose to send to the café through WhatsApp.
-        This website does not use a reservation database, analytics tracker, or live form submission.
+        The public static website does not store reservation data, accept payment, or verify transfers. No payment gateway is connected.
       </p>
 
       <h2 class="mt-10 text-2xl font-semibold text-ark-brown">How it is used</h2>
       <p class="mt-3 leading-8 text-stone-700">
-        Information is used to answer inquiries, discuss availability, confirm reservation details, and process the approved
-        50% down payment when applicable. Prices include tax. A cancelled reservation forfeits the down payment.
+        Information is used to review the requested date, time, party size, and pre-order and to manually verify full payment.
+        A pre-order of at least Rp 250,000 per reservation is required; prices include tax. Customer cancellations and no-shows after
+        1 hour without contact forfeit payment. If the café cannot fulfill the reservation or order, payment is refunded in full.
       </p>
 
       <h2 class="mt-10 text-2xl font-semibold text-ark-brown">Retention and deletion</h2>
       <p class="mt-3 leading-8 text-stone-700">
-        Reservation inquiries are retained for 12 months. To request correction or deletion of reservation information,
+        Reservation inquiries are retained for 12 months. The local prototype stores data only in temporary memory; restarting its local server erases it.
+        To request correction or deletion of reservation information,
         contact <a class="underline" href={`mailto:${site.privacyContact}`}>{site.privacyContact}</a>.
       </p>
 
       <h2 class="mt-10 text-2xl font-semibold text-ark-brown">Your choices</h2>
       <p class="mt-3 leading-8 text-stone-700">
-        Do not send sensitive personal information through WhatsApp. A reservation remains subject to staff confirmation.
-        This website does not create an automatic booking or payment confirmation.
+        Send payment proof through WhatsApp only after placing a reservation request. Staff review availability and payment manually within 30 minutes
+        after proof is received. A reservation is not confirmed until staff confirms it. No payment or refund is processed automatically by this website.
       </p>
 
       <a

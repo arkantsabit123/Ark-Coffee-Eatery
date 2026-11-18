@@ -1451,6 +1451,7 @@ Back-to-top:      fixed bottom-5 right-5 z-40 hidden h-12 w-12 rounded-full bg-s
 
 ## V2 normative amendments — visual QA contract
 - Canonical brand tokens remain cream `#FDF8F3`, brown `#4A2C2A`, amber `#D97706`, WhatsApp green `#25D366`; color usage must be checked for text/background contrast, especially white text on bright green and amber.
+- The dark ink token `#29211F` is used for text on WhatsApp green so the CTA text remains readable; skip-link text stays white on brown. A local contrast calculation measured 7.95:1 and 12.46:1 for these two pairs respectively.
 - Keep **one display font** and system body stack. Verify font license, actual WOFF2 file, `font-display: swap`, and fallback. Do not assume an asset exists merely because the file path is documented.
 - Component contract for every interactive element: default, hover, focus-visible, active, disabled, loading, error, and success where applicable. Document keyboard behavior, ARIA label only when semantic HTML is insufficient, and touch target >=44px design goal.
 - Mobile nav: button with `aria-expanded`, `aria-controls`, Escape close, focus management, outside-click behavior if implemented; anchor navigation should not be hidden by sticky header.

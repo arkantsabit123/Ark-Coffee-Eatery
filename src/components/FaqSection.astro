@@ -1,5 +1,7 @@
 ---
 import SectionHeading from './SectionHeading.astro';
+import { formatMenuPrice } from '../data/menu';
+import { reservationPolicy } from '../data/reservation';
 
 const questions = [
   {
@@ -16,7 +18,7 @@ const questions = [
   },
   {
     question: 'Can I reserve a table?',
-    answer: 'Request a table on WhatsApp no later than 1 day before arrival. Reservation requests close at 20:00. A 50% down payment is required for the order, which includes tax; cancellation forfeits the down payment.',
+    answer: `Request on WhatsApp at least 1 day ahead. Start between ${reservationPolicy.bookingStartTime} and ${reservationPolicy.latestBookingStart}, and finish by ${reservationPolicy.latestBookingEnd}. A pre-order of at least ${formatMenuPrice(reservationPolicy.minimumOrderTotal)} per reservation is required, with full payment. Staff confirm after checking availability and verifying payment. Customer cancellations and no-shows after 1 hour without contact forfeit payment; if the café cannot fulfill the reservation or order, payment is refunded in full.`,
   },
   {
     question: 'How can I contact the café?',

@@ -62,7 +62,7 @@
     <td align="center" colspan="2">
       <img src="./docs/screenshots/reservation.png" alt="Reservation screenshot" width="70%" />
       <b>Reservation &amp; WhatsApp</b><br/>
-      WhatsApp reservation guidance with the 1-day request deadline, 50% down payment, tax, and cancellation policy.
+      WhatsApp reservation guidance with the 1-day deadline, required pre-order, full payment, and cancellation policy.
     </td>
   </tr>
 </table>
@@ -77,7 +77,8 @@
 - FAQ accordion
 - Google Maps directions
 - LocalBusiness structured data
-- Static output with no live reservation data collection
+- GitHub Pages static hosting with manual WhatsApp reservations; no online payment processing or reservation database
+- Development-only reservation simulator with temporary in-memory data and no real payments
 - Mobile sticky WhatsApp button
 - 404 page
 
@@ -96,14 +97,30 @@
 - Node.js `>=22.23.4`
 - npm `>=9.6.5`
 
-### Run Locally
+### Run the Static Website Locally
 
 ```powershell
 npm install
 npm run dev
 ```
 
-Open `http://localhost:4321`.
+Open `http://localhost:4321/Ark-Coffee-Eatery/` (the project uses `/Ark-Coffee-Eatery/` as its base path).
+
+In development mode, the reservation section includes a local-only prototype. To use its in-memory API, start a second terminal and run:
+
+```powershell
+npm run dev:reservation-api
+```
+
+Use synthetic test details only. The local API binds to `127.0.0.1`, has no authentication or durable storage, sends no WhatsApp messages, and does not transfer or refund money. Restarting it clears its demo reservations. The production static build excludes the prototype.
+
+To test the API workflows from a third terminal, with Python 3 installed and the local API running, use:
+
+```powershell
+python scripts\test_local_reservation.py
+```
+
+The script uses Python's standard library and creates two synthetic reservations in memory: one approval and one rejection/refund simulation. It only calls `127.0.0.1:8787`; it does not send messages or move money. Each run creates new demo entries; restart the API to clear them.
 
 ### Validate and Preview
 
@@ -143,7 +160,8 @@ Image descriptions and replacement guidance are maintained in [docs/design-syste
 | Approved business facts | Implemented |
 | 14-item menu | Implemented |
 | WhatsApp interactions | Implemented |
-| Reservation backend | Not active; static-only release |
+| Reservation backend | Local in-memory simulator only; no production database |
+| Online payments | Not connected; transfer/e-wallet verification and refunds remain manual |
 | Analytics | Not active |
 | GitHub Pages deployment | Workflow included; repository Pages setting required |
 | Production domain | Not required for initial GitHub Pages release |
@@ -161,6 +179,7 @@ Image descriptions and replacement guidance are maintained in [docs/design-syste
 - [Test plan](./docs/test-plan.md)
 - [Verification checklist](./docs/verification-checklist.md)
 - [Operations runbook](./docs/operations-runbook.md)
+- [Customer package overview](./docs/customer-package.md)
 
 ## License
 

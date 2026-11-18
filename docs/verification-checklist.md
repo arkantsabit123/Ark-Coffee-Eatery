@@ -7,17 +7,17 @@
 
 > **Purpose:** Acceptance-test the single-page Ark Coffee & Eatery website before and after launch. Derived from `Blueprint.md`, `Cheatsheet.md`, `Content Guide.md`, `Deployment Guide.md`, and `Design System.md` (all v1.0.0, 17 November 2026).
 >
-> **Status:** Local static implementation exists and selected checks have passed. Reservation, business-content, staging, and production requirements remain unverified or blocked.
+> **Status:** Local static site and development-only in-memory reservation simulator are verified. Production storage, authentication, payment integration, staging, and production requirements remain inactive or unverified.
 
 ## Verification record
 
 | Field | Value |
 |---|---|
 | Project | Ark Coffee & Eatery |
-| Release / commit | `71bde55` — privacy, SEO, screenshot, and documentation release |
+| Release / commit | Uncommitted local reservation-prototype changes; no new release SHA |
 | QA owner | Not assigned |
 | Date | 2026-11-18 |
-| Local preview URL | `http://127.0.0.1:4321/` (local only) |
+| Local preview URL | `http://localhost:4321/Ark-Coffee-Eatery/` (local only) |
 | Production URL | https://arkantsabit123.github.io/Ark-Coffee-Eatery/ |
 | Hosting | GitHub Pages via GitHub Actions |
 | Browser / device | Integrated browser; 320, 375, 768, 1024, 1440 px |
@@ -321,19 +321,22 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 |---|---|---|---|---|---|---|
 | QA-001 | ARK-F01 | Inspect DOM and viewport widths at 320/375/768/1024/1440 | 11 regions, no overflow | P0 | PASS | Local browser metrics passed at five widths; live URL returned HTTP 200 and rendered the page. |
 | QA-002 | ARK-F02 | Compare menu data to approved inventory | 4 categories / 14 approved items | P0 | PASS | Four categories and all 14 approved names, descriptions, and prices render in the static build. |
-| QA-003 | ARK-F03 | Inspect image manifest, licenses and rendering | 6 gallery images, no broken links | P0 | PASS | All 22 image elements load locally; license/asset ownership should remain documented before public release. |
+| QA-003 | ARK-F03 | Inspect image manifest, licenses and rendering | 6 gallery images, no broken links | P0 | PASS | Owner confirmed current JPG photo assets are theirs and approved their use on 2026-11-18; all 22 page image elements, including six gallery images, loaded in local production preview. |
 | QA-004 | ARK-F04 | Click every WhatsApp CTA on mobile/desktop | Approved number, correct message | P0 | PASS | CTAs use `6281295709620` and context-specific encoded WhatsApp messages. |
-| QA-005 | ARK-F05 | Submit valid, invalid, past-date and oversized inputs | Validation on client and server | P0 | N/A | Static-only launch has no form submission; WhatsApp handles reservation inquiries manually. |
-| QA-006 | ARK-F06 | Submit valid request, inspect Sheet and logs | Exactly one row with request ID | P0 | N/A | Reservation storage was intentionally not activated. |
-| QA-007 | ARK-F07 | Double click / retry identical WhatsApp request | No duplicate row concept | P0 | N/A | No live reservation backend or duplicate-row state is used. |
-| QA-008 | ARK-F08 | Simulate network and backend errors | No false success, WhatsApp fallback | P0 | PASS | No form submission claims success; WhatsApp remains the direct fallback. |
+| QA-005 | ARK-F05 | Submit valid, invalid, past-date, under-minimum, and over-capacity synthetic requests | Local API validation rejects invalid requests | P0 | PASS | Local simulator unit tests cover required fields, H-1, hours, minimum order, and capacity. No production API exists. |
+| QA-006 | ARK-F06 | Submit request, inspect persistent reservation store | One durable record with request ID | P0 | BLOCKED | Local simulator is volatile and memory-only; no production database/storage selected. |
+| QA-007 | ARK-F07 | Double click / retry identical request | Duplicate is blocked or idempotently handled | P0 | BLOCKED | Prototype does not implement idempotency; production backend must add it. |
+| QA-008 | ARK-F08 | Simulate network and backend errors | No false success, WhatsApp fallback | P0 | PASS | The development-only simulator labels its results as demo states; the static site retains the WhatsApp fallback and has no live submission endpoint. |
 | QA-009 | ARK-F09 | Owner sign-off for address/hours/phone/menu | No placeholder facts | P0 | PASS | Address, hours, cutoff, WhatsApp, Instagram, menu, and privacy contact are recorded as owner-approved. |
-| QA-010 | ARK-N01 | Keyboard, screen-reader, axe, zoom, reduced motion | No critical accessibility defects | P0 | NOT_RUN | Browser check verified mobile navigation open/Escape, FAQ disclosure, reservation guidance, and responsive layouts; full screen-reader and axe audit remain. |
+| QA-010 | ARK-N01 | Keyboard, screen-reader, axe, zoom, reduced motion | No critical accessibility defects | P0 | NOT_RUN | Production-preview smoke passed: 1 H1 and header/nav/main/footer landmarks; 22 loaded images with alt; no overflow at 320/375/768/1024/1440; skip-link moved focus to main; nav Enter/Escape and FAQ Enter worked; reduced-motion uses `scroll-behavior: auto`. Full screen-reader, axe, and 200% zoom audit remain unrun. |
 | QA-011 | ARK-N02 | Inspect canonical/OG/JSON-LD/sitemap | Only approved facts and URLs | P1 | PASS | GitHub Pages canonical, OG/Twitter metadata, 1200x630 social preview, JSON-LD, robots, and sitemap are live; homepage, privacy, sitemap, robots, and OG asset returned HTTP 200. |
-| QA-012 | ARK-N03 | Run local check/build/tests; attach CI for release SHA when available | Check/build/tests green | P0 | PASS | `npm run check` (0 diagnostics), `npm run build` (3 static routes), `npm run test` (7/7 pass). GitHub Actions deployment succeeded. |
+| QA-012 | ARK-N03 | Run local check/build/tests; attach CI for release SHA when available | Check/build/tests green | P0 | PASS | Current worktree: `npm run check` (0 diagnostics), `npm run build` (3 static routes), `npm run test` (15/15 pass), and `git diff --check` pass. These local changes are uncommitted and have not been deployed. |
 | QA-013 | ARK-F10 | Inspect GA4 DebugView and payload | Events work, no names/phones | P1 | BLOCKED | Analytics is not approved or configured; no tracking requests are sent. |
-| QA-014 | SEC-01 | Test spam, formula injection, size limit, rate limiting | Invalid/abusive payloads rejected | P0 | BLOCKED | No reservation backend exists to test; form controls are disabled. |
+| QA-014 | SEC-01 | Test spam, formula injection, size limit, rate limiting | Invalid/abusive payloads rejected | P0 | BLOCKED | The local simulator is unauthenticated and has no persistence or rate limiting. Production abuse controls are not implemented; the simulator must not be deployed. |
 | QA-015 | OPS-01 | Disable backend and rehearse rollback | Recovery path and fallback verified | P0 | BLOCKED | No staging or production deployment exists. |
+| QA-016 | ARK-F04 | Review reservation guidance against approved manual full-payment policy | Minimum order, hours, payment, cancellation, no-show, and refund terms are clear | P0 | PASS | Static build tests assert policy copy; no real WhatsApp message or payment was sent. |
+| QA-017 | ARK-F05–F08 | Run local simulator workflow | Hold, proof, admin decision, and refund states behave as specified | P0 | PASS | Six API tests passed; browser exercised approval/rejection/refund. User-run Python HTTP smoke on 2026-11-18 also passed health, approval, rejection, and refund completion. All data was synthetic; no WhatsApp message or payment was sent. |
+| QA-018 | SEC-01 | Try non-local origin and inspect deployment output | API is local-only and omitted from static build | P0 | PASS | Unit test rejects a non-local origin; production build is tested to omit the local prototype UI. |
 
 ### Requirement-to-file map
 
@@ -341,12 +344,12 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 |---|---|---|
 | ARK-F01 | `src/pages/index.astro`, `src/components/*Section.astro`, `tests/site.test.mjs` | 11 regions in order; local viewport checks pass. |
 | ARK-F02 | `src/data/menu.ts`, `src/components/MenuSection.astro`, `public/images/menu/` | Four categories and all 14 approved names, descriptions, prices, and images. |
-| ARK-F03 | `src/data/gallery.ts`, `src/components/GallerySection.astro`, `public/images/hero/`, `public/images/gallery/`, `scripts/generate-concept-images.mjs` | One hero and six gallery assets render locally; asset ownership/license record remains to maintain. |
+| ARK-F03 | `src/data/gallery.ts`, `src/components/GallerySection.astro`, `public/images/hero/`, `public/images/gallery/`, `scripts/generate-concept-images.mjs` | One hero and six gallery assets render locally; owner confirmed current JPG photo assets are hers and approved their use on 2026-11-18. |
 | ARK-F04 | `src/data/site.ts`, `src/components/SiteHeader.astro`, `src/components/HeroSection.astro`, `src/components/StickyWhatsApp.astro` | Approved WhatsApp number `6281295709620` is used by all WhatsApp CTAs. |
-| ARK-F05–F08 | `src/components/ReservationSection.astro` | Static-only WhatsApp reservation guidance replaces live form submission; no personal data is collected or stored. |
+| ARK-F05–F08 | `src/components/LocalReservationPrototype.astro`, `scripts/local-reservation-api.mjs`, `src/data/reservation.ts`, `tests/local-reservation-api.test.mjs` | Synthetic local API validates policy and simulates manual proof/review/refund. Volatile, unauthenticated, and excluded from production; no payment gateway or persistent database. |
 | ARK-F09 | `src/data/site.ts`, `src/components/LocationSection.astro`, `src/components/SiteFooter.astro` | Approved Tangerang address, opening hours, cutoff, phone, Instagram, and privacy contact are implemented. |
 | ARK-F10 | No analytics client by design; see `docs/analytics-tracking-plan.md` | Analytics requires owner and privacy approval. |
-| ARK-N01 | `src/styles/global.css`, `src/scripts/navigation.ts`, `src/components/FaqSection.astro`, `src/components/BackToTop.astro` | Keyboard/mobile behaviors partially checked; full accessibility audit remains. |
+| ARK-N01 | `src/styles/global.css`, `src/pages/index.astro`, `src/scripts/navigation.ts`, `src/components/FaqSection.astro`, `src/components/BackToTop.astro` | Local smoke checks cover responsive overflow, landmarks, H1, image alt, skip-link focus, mobile nav, FAQ keyboard interaction, reduced motion, and key text contrast. Full screen-reader/axe/200% zoom audit remains. |
 | ARK-N02 | `src/layouts/BaseLayout.astro`, `public/sitemap.xml`, `public/robots.txt`, `public/og-image.png` | Canonical, indexing, social metadata, JSON-LD, sitemap, and robots are configured for GitHub Pages. |
 | ARK-N03 | `package.json`, `package-lock.json`, `astro.config.mjs`, `tests/site.test.mjs` | Local type check, build, and static tests passed; no CI workflow/release SHA. |
 
@@ -360,4 +363,4 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 ### Defect template
 `DEF-ID | severity (critical/high/medium/low) | reproduction steps | expected | actual | owner | fix SHA | retest evidence | status`
 
-**Current overall verdict:** `STATIC RELEASE LIVE / FULL POST-DEPLOY QA PENDING`. Production URL: https://arkantsabit123.github.io/Ark-Coffee-Eatery/. Release commit: `71bde55`. Homepage, privacy, sitemap, robots, OG image, 404, and representative assets return HTTP 200. Live reservation storage and analytics remain intentionally inactive.
+**Current overall verdict:** `STATIC RELEASE LIVE / OFFLINE RESERVATION PROTOTYPE / PRODUCTION BACKEND NOT READY`. Production URL remains unchanged: https://arkantsabit123.github.io/Ark-Coffee-Eatery/. Local API has no authentication, persistence, real payments, or deployment target. Analytics remains inactive.

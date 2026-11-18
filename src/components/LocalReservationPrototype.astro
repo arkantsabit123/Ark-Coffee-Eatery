@@ -1,0 +1,330 @@
+---
+import { formatMenuPrice, menuConceptItems } from '../data/menu';
+import { reservationPolicy } from '../data/reservation';
+---
+
+<section class="page-shell mt-12" aria-labelledby="local-prototype-heading">
+  <div class="rounded-3xl border-2 border-dashed border-ark-amber/50 bg-ark-cream-dark/50 p-6 md:p-8">
+    <p class="eyebrow">Development only</p>
+    <h2 id="local-prototype-heading" class="display-heading mt-2 text-3xl text-ark-brown">Offline reservation prototype</h2>
+    <p class="mt-3 max-w-3xl leading-7 text-stone-700">
+      Use synthetic test details only. This local demo uses temporary memory, has no staff login, sends no WhatsApp messages,
+      and does not transfer or refund money. Do not enter real customer information.
+    </p>
+
+    <form id="local-reservation-form" class="mt-8 grid gap-6 lg:grid-cols-2">
+      <div class="space-y-4">
+        <label class="block text-sm font-semibold text-ark-brown">
+          Demo name
+          <input
+            class="mt-2 min-h-12 w-full rounded-xl border border-ark-brown/20 bg-white px-4 font-normal"
+            name="name"
+            autocomplete="off"
+            minlength="2"
+            maxlength="80"
+            required
+            value="Demo Guest"
+          />
+        </label>
+        <label class="block text-sm font-semibold text-ark-brown">
+          Demo WhatsApp number
+          <input
+            class="mt-2 min-h-12 w-full rounded-xl border border-ark-brown/20 bg-white px-4 font-normal"
+            name="whatsapp"
+            autocomplete="off"
+            inputmode="tel"
+            pattern="[0-9]{8,15}"
+            required
+            value="620000000000"
+          />
+        </label>
+        <label class="block text-sm font-semibold text-ark-brown">
+          Reservation date
+          <input class="mt-2 min-h-12 w-full rounded-xl border border-ark-brown/20 bg-white px-4 font-normal" name="date" type="date" required />
+        </label>
+        <div class="grid grid-cols-2 gap-4">
+          <label class="block text-sm font-semibold text-ark-brown">
+            Start time (10:00–20:00)
+            <input class="mt-2 min-h-12 w-full rounded-xl border border-ark-brown/20 bg-white px-3 font-normal" name="startTime" type="time" min={reservationPolicy.bookingStartTime} max={reservationPolicy.latestBookingStart} required />
+          </label>
+          <label class="block text-sm font-semibold text-ark-brown">
+            End time (by 22:00)
+            <input class="mt-2 min-h-12 w-full rounded-xl border border-ark-brown/20 bg-white px-3 font-normal" name="endTime" type="time" min={reservationPolicy.bookingStartTime} max={reservationPolicy.latestBookingEnd} required />
+          </label>
+        </div>
+        <label class="block text-sm font-semibold text-ark-brown">
+          Party size (max {reservationPolicy.maxPartySize})
+          <input
+            class="mt-2 min-h-12 w-full rounded-xl border border-ark-brown/20 bg-white px-4 font-normal"
+            name="partySize"
+            type="number"
+            min="1"
+            max={reservationPolicy.maxPartySize}
+            step="1"
+            required
+            value="2"
+          />
+        </label>
+      </div>
+
+      <fieldset class="rounded-2xl border border-ark-brown/10 bg-white/70 p-4">
+        <legend class="px-2 font-semibold text-ark-brown">Required pre-order</legend>
+        <p class="mb-4 text-sm leading-6 text-stone-600">Minimum total: {formatMenuPrice(reservationPolicy.minimumOrderTotal)} including tax.</p>
+        <div class="grid max-h-80 gap-3 overflow-y-auto pr-2 sm:grid-cols-2">
+          {menuConceptItems.map((item) => (
+            <label class="flex items-center justify-between gap-3 rounded-lg border border-ark-brown/10 p-3 text-sm text-stone-700">
+              <span>{item.name}<span class="mt-1 block text-xs text-stone-500">{formatMenuPrice(item.price)}</span></span>
+              <input
+                class="min-h-11 w-16 rounded-lg border border-ark-brown/20 px-2 text-center"
+                type="number"
+                min="0"
+                max="50"
+                step="1"
+                value="0"
+                aria-label={`Quantity of ${item.name}`}
+                data-order-item
+                data-item-id={item.id}
+              />
+            </label>
+          ))}
+        </div>
+        <p class="mt-4 font-semibold text-ark-brown" id="local-order-total" aria-live="polite">Order total: Rp 0</p>
+      </fieldset>
+
+      <div class="lg:col-span-2">
+        <button class="inline-flex min-h-12 items-center justify-center rounded-full bg-ark-brown px-6 py-3 font-semibold text-white hover:bg-ark-brown/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ark-brown" type="submit">
+          Create demo reservation
+        </button>
+        <p class="mt-3 text-sm leading-6 text-stone-600">
+          The local API holds capacity for {reservationPolicy.paymentWindowMinutes} minutes for payment and gives staff{' '}
+          {reservationPolicy.adminReviewWindowMinutes} minutes to review proof sent through WhatsApp.
+        </p>
+        <div id="local-reservation-result" class="mt-4" aria-live="polite"></div>
+      </div>
+    </form>
+
+    <section class="mt-10 border-t border-ark-brown/15 pt-8" aria-labelledby="local-admin-heading">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <p class="eyebrow">Unprotected local demo</p>
+          <h3 id="local-admin-heading" class="display-heading mt-2 text-2xl text-ark-brown">Admin review queue</h3>
+        </div>
+        <button id="local-refresh-queue" class="min-h-11 rounded-full border border-ark-brown/20 bg-white px-5 py-2 font-semibold text-ark-brown focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ark-brown" type="button">
+          Refresh queue
+        </button>
+      </div>
+      <p class="mt-3 text-sm leading-6 text-stone-600">
+        Demo approval simulates manual payment verification and availability approval. Refund actions only change the demo status;
+        any real refund would require a staff-initiated transfer.
+      </p>
+      <div id="local-admin-queue" class="mt-5 grid gap-4" aria-live="polite">
+        <p class="text-sm text-stone-600">Start the local reservation API in a second terminal to use this queue.</p>
+      </div>
+    </section>
+  </div>
+</section>
+
+<script>
+  import { menuConceptItems } from '../data/menu';
+  import { reservationPolicy } from '../data/reservation';
+
+  const apiBase = 'http://127.0.0.1:8787';
+  const form = document.querySelector<HTMLFormElement>('#local-reservation-form');
+  const result = document.querySelector<HTMLDivElement>('#local-reservation-result');
+  const queue = document.querySelector<HTMLDivElement>('#local-admin-queue');
+  const totalOutput = document.querySelector<HTMLParagraphElement>('#local-order-total');
+  const refreshButton = document.querySelector<HTMLButtonElement>('#local-refresh-queue');
+  const menuPrices = new Map<string, number>(menuConceptItems.map((item) => [item.id, item.price]));
+  type DemoReservation = {
+    id: string;
+    name: string;
+    date: string;
+    startTime: string;
+    endTime: string;
+    partySize: number;
+    tablesRequired: number;
+    total: number;
+    status: string;
+  };
+
+  function formatPrice(total: number): string {
+    return `Rp ${total.toLocaleString('id-ID')}`;
+  }
+
+  function tomorrowInJakarta(): string {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Jakarta',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).formatToParts(new Date());
+    const values = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+    const tomorrow = new Date(`${values.year}-${values.month}-${values.day}T00:00:00Z`);
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + reservationPolicy.minimumLeadDays);
+    return tomorrow.toISOString().slice(0, 10);
+  }
+
+  function setMessage(target: HTMLElement, message: string, isError = false): void {
+    target.textContent = message;
+    target.className = isError
+      ? 'mt-4 rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-900'
+      : 'mt-4 rounded-xl border border-ark-brown/10 bg-white p-4 text-sm text-stone-700';
+  }
+
+  async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
+    const response = await fetch(`${apiBase}${path}`, {
+      ...options,
+      headers: { 'Content-Type': 'application/json', ...options.headers },
+    });
+    const payload = await response.json();
+    if (!response.ok) {
+      throw new Error(payload.error ?? 'Local prototype request failed.');
+    }
+    return payload as T;
+  }
+
+  function updateOrderTotal(): void {
+    const inputs = [...document.querySelectorAll<HTMLInputElement>('[data-order-item]')];
+    const total = inputs.reduce((sum, input) => (
+      sum + (menuPrices.get(input.dataset.itemId ?? '') ?? 0) * Number(input.value || 0)
+    ), 0);
+    if (totalOutput) {
+      totalOutput.textContent = `Order total: ${formatPrice(total)}${total < reservationPolicy.minimumOrderTotal ? ` (minimum ${formatPrice(reservationPolicy.minimumOrderTotal)})` : ''}`;
+    }
+  }
+
+  function button(label: string, action: () => void, variant = 'primary'): HTMLButtonElement {
+    const control = document.createElement('button');
+    control.type = 'button';
+    control.textContent = label;
+    control.className = variant === 'secondary'
+      ? 'min-h-11 rounded-full border border-ark-brown/20 bg-white px-4 py-2 font-semibold text-ark-brown'
+      : 'min-h-11 rounded-full bg-ark-brown px-4 py-2 font-semibold text-white';
+    control.addEventListener('click', action);
+    return control;
+  }
+
+  async function refreshQueue(): Promise<void> {
+    if (!queue) return;
+    try {
+      const { reservations } = await request<{ reservations: DemoReservation[] }>('/api/admin/reservations');
+      queue.replaceChildren();
+      if (reservations.length === 0) {
+        queue.textContent = 'No local demo reservations yet.';
+        return;
+      }
+
+      for (const reservation of reservations) {
+        const card = document.createElement('article');
+        card.className = 'rounded-xl border border-ark-brown/10 bg-white p-4';
+        const summary = document.createElement('p');
+        summary.className = 'font-semibold text-ark-brown';
+        summary.textContent = `${reservation.id} · ${reservation.name} · ${reservation.date} ${reservation.startTime}–${reservation.endTime}`;
+        const details = document.createElement('p');
+        details.className = 'mt-2 text-sm leading-6 text-stone-600';
+        const tableLabel = reservation.tablesRequired === 1 ? 'table' : 'tables';
+        details.textContent = `${reservation.partySize} guests · ${reservation.tablesRequired} ${tableLabel} · ${formatPrice(reservation.total)} · ${reservation.status}`;
+        card.append(summary, details);
+
+        const actions = document.createElement('div');
+        actions.className = 'mt-3 flex flex-wrap gap-2';
+        if (reservation.status === 'awaiting_admin_review') {
+          actions.append(
+            button('Simulate verify & approve', async () => {
+              const updated = await changeStatus(`/api/admin/reservations/${reservation.id}/decision`, { decision: 'approve' });
+              if (updated && result) {
+                setMessage(result, `Demo reservation ${reservation.id} is confirmed. No real payment was processed.`);
+              }
+            }),
+            button('Reject · refund due', async () => {
+              const updated = await changeStatus(`/api/admin/reservations/${reservation.id}/decision`, { decision: 'reject', reason: 'Demo rejection' });
+              if (updated && result) {
+                setMessage(result, `Demo reservation ${reservation.id} was rejected; a manual refund is due. No money was transferred.`);
+              }
+            }, 'secondary'),
+          );
+        } else if (reservation.status === 'refund_due') {
+          actions.append(button('Simulate manual refund completed', async () => {
+            const updated = await changeStatus(`/api/admin/reservations/${reservation.id}/refund-completed`, {});
+            if (updated && result) {
+              setMessage(result, `Demo refund for ${reservation.id} is marked complete. No money was transferred.`);
+            }
+          }, 'secondary'));
+        }
+        card.append(actions);
+        queue.append(card);
+      }
+    } catch (error) {
+      queue.textContent = error instanceof Error
+        ? `${error.message} Run npm run dev:reservation-api in a second terminal.`
+        : 'Could not load the local admin queue.';
+    }
+  }
+
+  async function changeStatus(path: string, body: Record<string, string>): Promise<boolean> {
+    try {
+      await request(path, { method: 'POST', body: JSON.stringify(body) });
+      await refreshQueue();
+      return true;
+    } catch (error) {
+      if (queue) {
+        queue.textContent = error instanceof Error ? error.message : 'Local status update failed.';
+      }
+      return false;
+    }
+  }
+
+  const dateInput = form?.elements.namedItem('date');
+  if (dateInput instanceof HTMLInputElement) {
+    dateInput.min = tomorrowInJakarta();
+  }
+
+  document.querySelectorAll<HTMLInputElement>('[data-order-item]').forEach((input) => {
+    input.addEventListener('input', updateOrderTotal);
+  });
+  refreshButton?.addEventListener('click', () => void refreshQueue());
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!form || !result) return;
+    const fields = new FormData(form);
+    const items = [...document.querySelectorAll<HTMLInputElement>('[data-order-item]')]
+      .map((input) => ({ itemId: input.dataset.itemId, quantity: Number(input.value || 0) }))
+      .filter((item) => item.quantity > 0);
+    const payload = {
+      name: fields.get('name'),
+      whatsapp: fields.get('whatsapp'),
+      date: fields.get('date'),
+      startTime: fields.get('startTime'),
+      endTime: fields.get('endTime'),
+      partySize: Number(fields.get('partySize')),
+      items,
+    };
+
+    try {
+      const { reservation } = await request<{ reservation: { id: string; total: number; paymentDeadlineAt: number } }>('/api/reservations', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+      const reservationId = reservation.id;
+      result.replaceChildren();
+      setMessage(result, `Demo reservation ${reservationId} is waiting for manual payment. Total: ${formatPrice(reservation.total)}. No payment details are configured.`);
+      const proofButton = button('Simulate WhatsApp proof received', async () => {
+        const updated = await changeStatus(`/api/reservations/${reservationId}/payment-proof`, {});
+        if (!updated) return;
+        setMessage(result, `Demo proof for ${reservationId} is recorded. Admin review is pending; no real payment or WhatsApp message was sent.`);
+        proofButton.disabled = true;
+        proofButton.textContent = 'Demo proof received; awaiting admin review';
+        await refreshQueue();
+      });
+      proofButton.className += ' mt-3';
+      result.append(proofButton);
+      await refreshQueue();
+    } catch (error) {
+      setMessage(result, error instanceof Error ? error.message : 'Could not create the local demo reservation.', true);
+    }
+  });
+
+  updateOrderTotal();
+  void refreshQueue();
+</script>

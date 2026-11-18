@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "dev:reservation-api": "node scripts/local-reservation-api.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",

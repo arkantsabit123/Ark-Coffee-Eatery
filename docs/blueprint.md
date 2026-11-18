@@ -1378,4 +1378,4 @@ curl -X POST "$PUBLIC_APPS_SCRIPT_URL" \
 - Availability: contact via WhatsApp remains usable if the form API is unavailable.
 
 ### Explicit exclusions
-No payment processing, live table inventory, automatic reservation confirmation, loyalty program, multi-language toggle, or order checkout in v2 unless separately approved.
+No production payment processing, live inventory guarantee, loyalty program, multi-language toggle, or automated refund in v2 unless separately approved. The local-only simulator is not a live reservation system. Current owner-approved manual terms require a full pre-order payment of at least Rp 250,000 per reservation including tax; staff confirm after manually checking payment and availability.

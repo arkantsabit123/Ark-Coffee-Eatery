@@ -1,6 +1,6 @@
 <!-- ARK DOCUMENTATION V2.0 — AUTHORITATIVE RULES BELOW TAKE PRECEDENCE OVER LEGACY V1 EXAMPLES -->
-> **Version 2.0 | Status: Static-only preview implemented; production deployment pending. See `verification-checklist.md` for evidence.**
-> **Implementation update:** Current architecture is static-only with WhatsApp-first reservations. No live reservation backend or production domain is active. Production address and Maps URL are maintained in `src/data/site.ts`.
+> **Version 2.0 | Status: Static site implemented; local-only reservation simulator available; production backend deployment pending. See `verification-checklist.md` for evidence.**
+> **Implementation update:** GitHub Pages serves static pages only. The development reservation simulator uses a separate loopback API and in-memory synthetic data; it is not part of the production build. Production address and Maps URL are maintained in `src/data/site.ts`.
 > **Important:** The original v1 content is retained for detailed historical requirements. Any conflicting v1 commands, example code, numerical targets, business claims, or deployment statements are superseded by the **V2 normative amendments** at the end of this file, and by `docs/README.md`. Do not copy legacy Apps Script browser `fetch()` examples into production. `Production Ready` references in the retained historical sections do not describe the actual release state.
 > **Source:** User-provided v1 file `Deployment Guide.md`. New v2 requirements are proposed engineering improvements, not verified facts about the business.
 
@@ -857,7 +857,8 @@ A condensed checklist covering all phases.
 - **Selected host:** GitHub Pages project site at `https://arkantsabit123.github.io/Ark-Coffee-Eatery/`.
 - **Deployment workflow:** `.github/workflows/deploy.yml` builds on pushes to `main`, uploads `dist/`, and deploys to GitHub Pages.
 - Run locally with `npm install` and `npm run dev`. Run `npm run check`, `npm run build`, then `npm run test` before previewing with `npm run preview`.
-- The reservation form is not a live form. It is WhatsApp-first and does not collect or transmit personal data. The approved WhatsApp number is implemented in `src/data/site.ts`; no website domain/canonical URL or analytics ID has been configured.
+- For the offline prototype, start `npm run dev` and `npm run dev:reservation-api` in separate terminals. The API binds only to `127.0.0.1:8787`, holds state in memory, and accepts only local preview origins. Use synthetic values only. It has no authentication and must not be deployed.
+- The production reservation experience remains WhatsApp/manual. Full pre-order payment (minimum Rp 250,000 per reservation, tax included) is made by bank transfer/e-wallet and verified manually through WhatsApp. No gateway API, persistent database, or automatic refund is active.
 - Keep static Astro pages, but **choose Vercel Functions or Netlify Functions** for `/api/reservations` if using the preferred v2 same-origin API. Pure static CDN hosting cannot execute this route. Select **one** hosting provider for production and document the decision.
 - Legacy instructions to post JSON directly from the browser to Apps Script are **deprecated**. CORS cannot be fixed simply by setting Apps Script to `Anyone`.
 - Do not assume Astro 4.x / Tailwind 3.4 / Node 20 are currently supported; versions are **v1 compatibility constraints**. Verify package compatibility, security support, and lockfile in a real repository before choosing upgrades. If changed, update all docs and ADR.

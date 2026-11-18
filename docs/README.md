@@ -13,6 +13,7 @@ This documentation package upgrades the six user-supplied v1 Markdown files, pre
 5. `design-system.md` and `content-guide.md`
 6. `deployment-guide.md` and `cheatsheet.md`
 7. `test-plan.md`, `verification-checklist.md`, `analytics-tracking-plan.md`, `operations-runbook.md`
+8. `customer-package.md` for proposed customer-facing package scopes and their current status
 
 ## Precedence
 1. Owner-approved business facts and security/privacy requirements
@@ -26,7 +27,8 @@ This documentation package upgrades the six user-supplied v1 Markdown files, pre
 - **No fabricated reviews, rating, sales, customer counts, locations, business hours, or prices.**
 - All owner details in v1 are unverified until approved. A real working phone, domain and map pin are launch blockers.
 - Prefer browser -> same-origin serverless API -> validated backend -> Sheets. No direct JSON browser-to-Apps-Script assumption.
-- Reservation request is not a confirmed booking.
+- Reservation requests require a pre-order of at least Rp 250,000 per reservation and full payment. Staff manually verify payment proof and availability; cancellations/no-shows follow the owner-approved forfeiture policy, while café-side failures receive a full refund.
+- The production GitHub Pages site remains static and does not store reservations or process payments. A development-only in-memory API exists for synthetic local tests; it is not production-ready.
 - Record all deviations in `architecture-decisions.md`.
 - Tests and evidence are required before using the label `PRODUCTION_VERIFIED`.
 
@@ -38,11 +40,13 @@ Requirement IDs traced to implementation, code check/build/test pass, real brows
 |---|---|---|---|
 | FACT-01 | Address, opening hours and booking cutoff | Business owner | APPROVED — Tangerang address; 07:00–22:00; cutoff 20:00 |
 | FACT-02 | Website domain, Instagram, email, and privacy contact | Business owner | PARTIAL — GitHub Pages URL live; Instagram and email approved; custom domain optional |
-| FACT-03 | Menu names/prices/ingredients and authentic image rights | Business owner | APPROVED — asset licenses should remain documented |
+| FACT-03 | Menu names/prices/ingredients and authentic image rights | Business owner | APPROVED — owner confirmed current JPG photo assets are theirs and approved their use on 2026-11-18; keep this record |
 | FACT-04 | Testimonials, rating and customer-count proof | Business owner | OMITTED — no proof supplied |
-| TECH-01 | Hosting and reservation API design | Technical owner | DECIDED — GitHub Pages static-only, backend disabled |
+| TECH-01 | Hosting and reservation handling | Technical owner | GitHub Pages remains static; local-only API prototype uses memory and synthetic data. Production host, persistent database, authenticated admin access, and payment API remain undecided/inactive |
 | TECH-02 | Astro/Tailwind/Node version and support review | Project request / technical owner | ACCEPTED for local implementation in ADR-005; revalidate before release |
 | OPS-01 | Data retention, deletion, abuse monitoring and alert owner | Business + technical owner | PARTIAL — 12-month retention and privacy contact approved; formal deletion workflow and staff assignment remain pending |
 
 ## Deliverables
-The repository includes the specifications and a deployed Astro/Tailwind static preview. Local checks, build, static tests, live asset smoke tests, privacy/sitemap/OG metadata, and GitHub Pages deployment evidence are in `verification-checklist.md`. Custom-domain, full accessibility, analytics, and live reservation backend work remain pending.
+The repository includes the specifications and a deployed Astro/Tailwind static site. An offline reservation prototype can be run locally but has no durable storage, authentication, payment gateway, or real customer data. Production backend and payment work remain pending.
+
+The customer package document and runnable Python checklists track the proposed Basic, Standard, and Full Production scopes. Package inclusions that have not been agreed are explicitly marked as proposals or requiring agreement.

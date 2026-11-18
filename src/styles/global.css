@@ -5,6 +5,7 @@
   --color-ark-cream-dark: #f5e6d3;
   --color-ark-brown: #4a2c2a;
   --color-ark-brown-dark: #3a1f1d;
+  --color-ark-ink: #29211f;
   --color-ark-amber: #d97706;
   --color-ark-amber-light: #fef3c7;
   --color-ark-whatsapp: #25d366;
@@ -46,10 +47,6 @@ button,
 a,
 summary {
   -webkit-tap-highlight-color: transparent;
-}
-
-a {
-  color: inherit;
 }
 
 button:focus-visible,

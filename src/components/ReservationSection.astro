@@ -1,6 +1,9 @@
 ---
 import SectionHeading from './SectionHeading.astro';
+import LocalReservationPrototype from './LocalReservationPrototype.astro';
+import { formatMenuPrice } from '../data/menu';
 import { site } from '../data/site';
+import { reservationPolicy } from '../data/reservation';
 ---
 
 <section id="reservations" data-page-region="reservation" class="section-space">
@@ -12,17 +15,17 @@ import { site } from '../data/site';
         description="Reservation requests are handled through WhatsApp. No automatic confirmation or live table inventory is used."
       />
       <p class="max-w-md leading-7 text-stone-600">
-        Reservation inquiries received through WhatsApp are retained according to the approved {site.reservationRetention} retention period.
-        Requests received after {site.bookingCutoff} are for a later time.
+        Reservation inquiries shared through WhatsApp are retained for {site.reservationRetention}.
+        Start times are {reservationPolicy.bookingStartTime}–{site.bookingCutoff}; bookings must end by {reservationPolicy.latestBookingEnd}.
       </p>
       <div class="mt-5 max-w-md rounded-xl border border-ark-amber/20 bg-ark-amber-light/60 p-4 text-sm leading-6 text-stone-700">
-        Reservations must be requested no later than 1 day before arrival.
-        A 50% down payment of the ordered food and beverage value is required. The prices include tax.
-        The down payment is forfeited if the reservation is cancelled.
+        Book at least 1 day ahead. A pre-order of at least {formatMenuPrice(reservationPolicy.minimumOrderTotal)} per reservation is required; prices include tax and full payment is due.
+        Staff confirm after checking availability and manually verifying payment proof within 30 minutes.
+        Customer cancellations and no-shows after 1 hour without contact forfeit payment. If the café cannot fulfill your reservation or order, payment is refunded in full.
       </div>
       <a
-        class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-ark-whatsapp px-6 py-3 font-semibold text-white"
-        href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hello Ark Coffee & Eatery, I would like to request a table reservation.')}`}
+        class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-ark-whatsapp px-6 py-3 font-semibold text-ark-ink"
+        href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hello Ark Coffee & Eatery, I would like to request a reservation.\\nDate:\\nStart and end time:\\nParty size:\\nMenu pre-order:')}`}
         target="_blank"
         rel="noopener noreferrer">Request via WhatsApp</a
       >
@@ -31,13 +34,13 @@ import { site } from '../data/site';
       </p>
     </div>
     <div class="rounded-3xl border border-ark-brown/10 bg-white/75 p-6 md:p-8">
-      <p class="eyebrow">Before messaging</p>
+      <p class="eyebrow">How it works</p>
       <ul class="mt-5 space-y-4 text-stone-700">
-        <li>Include your preferred date and time.</li>
-        <li>Include your party size.</li>
-        <li>Include any seating notes.</li>
-        <li>The café must confirm availability. A WhatsApp request is not an automatic booking.</li>
+        <li>Message your date, start and end time, party size, and menu pre-order. One table seats 4; parties may be up to 12.</li>
+        <li>Pay the full order total by bank transfer or e-wallet within 30 minutes; send proof through WhatsApp.</li>
+        <li>The admin team checks availability and payment. This website does not process or automatically verify payments.</li>
       </ul>
     </div>
   </div>
+  {import.meta.env.DEV && <LocalReservationPrototype />}
 </section>

@@ -1,0 +1,16 @@
+export const reservationPolicy = {
+  minimumLeadDays: 1,
+  bookingStartTime: '10:00',
+  latestBookingStart: '20:00',
+  latestBookingEnd: '22:00',
+  tableCount: 12,
+  seatsPerTable: 4,
+  maxPartySize: 12,
+  minimumOrderTotal: 250_000,
+  paymentWindowMinutes: 30,
+  adminReviewWindowMinutes: 30,
+  lateGraceMinutes: 60,
+  retentionMonths: 12,
+  customerCancellationRefund: false,
+  cafeCancellationRefund: true,
+} as const;

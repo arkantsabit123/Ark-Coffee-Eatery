@@ -1,5 +1,7 @@
 ---
 import { site } from '../data/site';
+import { formatMenuPrice } from '../data/menu';
+import { reservationPolicy } from '../data/reservation';
 ---
 
 <footer id="site-footer" data-page-region="footer" class="border-t border-ark-brown/10 bg-ark-cream-dark/55 py-10">
@@ -17,8 +19,10 @@ import { site } from '../data/site';
       </div>
       <p class="mt-4 max-w-2xl text-xs leading-5 text-stone-500">
         Reservation policy: requests must be submitted no later than 1 day before arrival.
-        A 50% down payment is required for the ordered food and beverage value, including tax.
-        Cancellation forfeits the down payment. Reservation inquiries are retained for 12 months.
+        Start times are {reservationPolicy.bookingStartTime}–{reservationPolicy.latestBookingStart}, with all bookings ending by {reservationPolicy.latestBookingEnd}.
+        A pre-order of at least {formatMenuPrice(reservationPolicy.minimumOrderTotal)} per reservation and full payment are required; prices include tax.
+        Customer cancellations and no-shows after 1 hour without contact forfeit payment. If the café cannot fulfill the reservation or order, payment is refunded in full.
+        Reservation inquiries are retained for {site.reservationRetention}.
         Privacy contact: {site.privacyContact}.
       </p>
     </div>
