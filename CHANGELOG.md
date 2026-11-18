@@ -1,6 +1,8 @@
 # Changelog
 
 ## 2026-11-18 — GitHub Pages release
+- Added privacy policy page, sitemap, robots sitemap reference, OG/Twitter metadata, and 1200x630 social preview image.
+- Committed actual README screenshot PNGs and removed superseded SVG screenshot placeholders.
 - Deployed the static Astro website to GitHub Pages.
 - Production URL: https://arkantsabit123.github.io/Ark-Coffee-Eatery/
 - GitHub Actions workflow run `44286318459` completed successfully.

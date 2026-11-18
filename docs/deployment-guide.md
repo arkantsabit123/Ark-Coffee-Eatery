@@ -16,7 +16,7 @@
 |----------|-------|
 | Version | 1.0.0 |
 | Last Updated | 2026-11-17 |
-| Status | Static-only preview ready; live deployment approval pending |
+| Status | Static release live on GitHub Pages; custom-domain/post-deploy QA pending |
 | Owner | Ark Coffee & Eatery |
 | Companion Docs | `blueprint.md`, `design-system.md`, `content-guide.md`, `cheatsheets.md` |
 

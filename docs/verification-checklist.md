@@ -14,7 +14,7 @@
 | Field | Value |
 |---|---|
 | Project | Ark Coffee & Eatery |
-| Release / commit | Live workflow commit `83f5335`; documentation follow-up pending commit |
+| Release / commit | Live implementation `83f5335`; final documentation/screenshot commit pending |
 | QA owner | Not assigned |
 | Date | 2026-11-18 |
 | Local preview URL | `http://127.0.0.1:4321/` (local only) |
@@ -329,7 +329,7 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 | QA-008 | ARK-F08 | Simulate network and backend errors | No false success, WhatsApp fallback | P0 | PASS | No form submission claims success; WhatsApp remains the direct fallback. |
 | QA-009 | ARK-F09 | Owner sign-off for address/hours/phone/menu | No placeholder facts | P0 | PASS | Address, hours, cutoff, WhatsApp, Instagram, menu, and privacy contact are recorded as owner-approved. |
 | QA-010 | ARK-N01 | Keyboard, screen-reader, axe, zoom, reduced motion | No critical accessibility defects | P0 | NOT_RUN | Browser check verified mobile navigation open/Escape, FAQ disclosure, reservation guidance, and responsive layouts; full screen-reader and axe audit remain. |
-| QA-011 | ARK-N02 | Inspect canonical/OG/JSON-LD/sitemap | Only approved facts and URLs | P1 | BLOCKED | GitHub Pages canonical and JSON-LD are configured; OG image and deployed sitemap verification remain pending. |
+| QA-011 | ARK-N02 | Inspect canonical/OG/JSON-LD/sitemap | Only approved facts and URLs | P1 | PASS | GitHub Pages canonical, OG/Twitter metadata, 1200x630 social preview, JSON-LD, robots, and sitemap are configured; live social-crawler rendering should be rechecked after deployment. |
 | QA-012 | ARK-N03 | Run local check/build/tests; attach CI for release SHA when available | Check/build/tests green | P0 | PASS | `npm run check` (0 diagnostics), `npm run build` (2 static routes), `npm run test` (5/5 pass). No CI/release SHA exists yet. |
 | QA-013 | ARK-F10 | Inspect GA4 DebugView and payload | Events work, no names/phones | P1 | BLOCKED | Analytics is not approved or configured; no tracking requests are sent. |
 | QA-014 | SEC-01 | Test spam, formula injection, size limit, rate limiting | Invalid/abusive payloads rejected | P0 | BLOCKED | No reservation backend exists to test; form controls are disabled. |
@@ -347,7 +347,7 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 | ARK-F09 | `src/data/site.ts`, `src/components/LocationSection.astro`, `src/components/SiteFooter.astro` | Approved Tangerang address, opening hours, cutoff, phone, Instagram, and privacy contact are implemented. |
 | ARK-F10 | No analytics client by design; see `docs/analytics-tracking-plan.md` | Analytics requires owner and privacy approval. |
 | ARK-N01 | `src/styles/global.css`, `src/scripts/navigation.ts`, `src/components/FaqSection.astro`, `src/components/BackToTop.astro` | Keyboard/mobile behaviors partially checked; full accessibility audit remains. |
-| ARK-N02 | `src/layouts/BaseLayout.astro` | Safe generic metadata and `noindex`; canonical/business structured data waits for approved domain/facts. |
+| ARK-N02 | `src/layouts/BaseLayout.astro`, `public/sitemap.xml`, `public/robots.txt`, `public/og-image.png` | Canonical, indexing, social metadata, JSON-LD, sitemap, and robots are configured for GitHub Pages. |
 | ARK-N03 | `package.json`, `package-lock.json`, `astro.config.mjs`, `tests/site.test.mjs` | Local type check, build, and static tests passed; no CI workflow/release SHA. |
 
 **GO:** All P0 PASS, no unresolved critical/high defects, approved owner content, release SHA and reviewer recorded. **NO-GO:** Any P0 FAIL/BLOCKED/NOT_RUN. P1 exceptions require named approver, risk, and deadline. Never turn `NOT_RUN` into `PASS` without evidence.

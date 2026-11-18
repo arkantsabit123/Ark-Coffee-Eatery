@@ -16,7 +16,7 @@
 |----------|-------|
 | Version | 1.0.0 |
 | Last Updated | 2026-11-17 |
-| Status | Local implementation complete; production UI verification pending |
+| Status | Static implementation live; post-deploy visual and accessibility QA pending |
 | Owner | Ark Coffee & Eatery |
 | Companion Docs | `blueprint.md`, `content-guide.md`, `cheatsheets.md`, `deployment-guide.md` |
 | Framework | Astro 4.x + Tailwind CSS 3.4 |

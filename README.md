@@ -24,43 +24,43 @@
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="./docs/screenshots/desktop-home.svg" alt="Desktop home screenshot placeholder" width="100%" />
+      <img src="./docs/screenshots/desktop-home.png" alt="Desktop home screenshot" width="100%" />
       <b>Desktop Home</b><br/>
       Full-width hero layout with approved navigation, heading, WhatsApp CTA, menu CTA, and hero image.
     </td>
     <td align="center" width="50%">
-      <img src="./docs/screenshots/mobile-home.svg" alt="Mobile home screenshot placeholder" width="100%" />
+      <img src="./docs/screenshots/mobile-home.png" alt="Mobile home screenshot" width="100%" />
       <b>Mobile Home</b><br/>
       Mobile-first hero layout with the hamburger menu and touch-friendly actions.
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="./docs/screenshots/menu.svg" alt="Menu screenshot placeholder" width="100%" />
+      <img src="./docs/screenshots/menu.png" alt="Menu screenshot" width="100%" />
       <b>Menu</b><br/>
       14 approved items across coffee, non-coffee, main course, and pastry categories.
     </td>
     <td align="center" width="50%">
-      <img src="./docs/screenshots/gallery.svg" alt="Gallery screenshot placeholder" width="100%" />
+      <img src="./docs/screenshots/gallery.png" alt="Gallery screenshot" width="100%" />
       <b>Gallery</b><br/>
       Six visual slots for exterior, interior, coffee preparation, food, seating, and guests.
     </td>
   </tr>
   <tr>
     <td align="center" width="50%">
-      <img src="./docs/screenshots/location.svg" alt="Location and hours screenshot placeholder" width="100%" />
+      <img src="./docs/screenshots/location.png" alt="Location and hours screenshot" width="100%" />
       <b>Location &amp; Hours</b><br/>
       Approved Tangerang address, opening hours, and Google Maps action.
     </td>
     <td align="center" width="50%">
-      <img src="./docs/screenshots/faq.svg" alt="FAQ screenshot placeholder" width="100%" />
+      <img src="./docs/screenshots/faq.png" alt="FAQ screenshot" width="100%" />
       <b>FAQ</b><br/>
       Address, opening hours, menu, reservation, and contact answers.
     </td>
   </tr>
   <tr>
     <td align="center" colspan="2">
-      <img src="./docs/screenshots/reservation.svg" alt="Reservation screenshot placeholder" width="70%" />
+      <img src="./docs/screenshots/reservation.png" alt="Reservation screenshot" width="70%" />
       <b>Reservation &amp; WhatsApp</b><br/>
       WhatsApp reservation guidance with the 1-day request deadline, 50% down payment, tax, and cancellation policy.
     </td>

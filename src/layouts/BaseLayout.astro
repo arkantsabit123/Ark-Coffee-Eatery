@@ -36,6 +36,7 @@ const localBusiness = {
 
 const canonicalUrl = 'https://arkantsabit123.github.io/Ark-Coffee-Eatery/';
 const faviconUrl = `${import.meta.env.BASE_URL}favicon.jpg`;
+const socialImageUrl = `${canonicalUrl}og-image.png`;
 ---
 
 <!doctype html>
@@ -47,6 +48,15 @@ const faviconUrl = `${import.meta.env.BASE_URL}favicon.jpg`;
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#fdf8f3" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/jpeg" href={faviconUrl} />
     <script type="application/ld+json" set:html={JSON.stringify(localBusiness)}></script>

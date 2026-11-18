@@ -65,3 +65,10 @@ test('shows the approved reservation and cancellation policy', () => {
   assert.match(html, /down payment is forfeited/i);
   assert.equal((html.match(/<details class=/g) ?? []).length, 5);
 });
+
+test('includes public SEO and privacy assets', () => {
+  assert.match(html, /<meta property="og:image" content="[^"]+\/og-image\.png"/i);
+  assert.match(html, /<meta name="twitter:card" content="summary_large_image"/i);
+  assert.match(html, /<link rel="canonical" href="https:\/\/arkantsabit123\.github\.io\/Ark-Coffee-Eatery\/"/i);
+  assert.match(html, /href="\/Ark-Coffee-Eatery\/privacy\/"/i);
+});

@@ -37,12 +37,12 @@ Requirement IDs traced to implementation, code check/build/test pass, real brows
 | ID | Approval required | Owner | Status |
 |---|---|---|---|
 | FACT-01 | Address, opening hours and booking cutoff | Business owner | APPROVED — Tangerang address; 07:00–22:00; cutoff 20:00 |
-| FACT-02 | Website domain, Instagram, email, and privacy contact | Business owner | PARTIAL — Instagram and email approved; no separate website domain/canonical URL provided |
+| FACT-02 | Website domain, Instagram, email, and privacy contact | Business owner | PARTIAL — GitHub Pages URL live; Instagram and email approved; custom domain optional |
 | FACT-03 | Menu names/prices/ingredients and authentic image rights | Business owner | APPROVED — asset licenses should remain documented |
 | FACT-04 | Testimonials, rating and customer-count proof | Business owner | OMITTED — no proof supplied |
-| TECH-01 | Hosting and reservation API design | Technical owner | DECIDED — static-only, backend disabled |
+| TECH-01 | Hosting and reservation API design | Technical owner | DECIDED — GitHub Pages static-only, backend disabled |
 | TECH-02 | Astro/Tailwind/Node version and support review | Project request / technical owner | ACCEPTED for local implementation in ADR-005; revalidate before release |
-| OPS-01 | Data retention, deletion, abuse monitoring and alert owner | Business + technical owner | PARTIAL — 12-month retention approved; WhatsApp staff and deletion process pending |
+| OPS-01 | Data retention, deletion, abuse monitoring and alert owner | Business + technical owner | PARTIAL — 12-month retention and privacy contact approved; formal deletion workflow and staff assignment remain pending |
 
 ## Deliverables
-The repository includes the specifications and a local Astro/Tailwind static preview. Local type checking, production build, static tests, dependency audit, and selected browser checks have been executed; evidence is in `verification-checklist.md`. Business approval, reservation backend, analytics, staging, deployment, and production verification have not been completed.
+The repository includes the specifications and a deployed Astro/Tailwind static preview. Local checks, build, static tests, live asset smoke tests, privacy/sitemap/OG metadata, and GitHub Pages deployment evidence are in `verification-checklist.md`. Custom-domain, full accessibility, analytics, and live reservation backend work remain pending.

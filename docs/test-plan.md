@@ -8,6 +8,8 @@
 - `npm run test`: pass with 5 static acceptance tests.
 - Browser: no horizontal overflow checked at 320, 375, 768, 1024, and 1440 px.
 - Browser: all 22 page image elements load after scrolling.
+- Live smoke: homepage, hero/menu/gallery images, robots, and 404 return HTTP 200.
+- Privacy, sitemap, canonical, and social preview metadata are built for the GitHub Pages release.
 - Remaining P0 integrations require real staging or production evidence.
 
 ## Strategy

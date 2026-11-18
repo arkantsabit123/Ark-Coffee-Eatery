@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900">
-  <rect width="1440" height="900" fill="#fdf8f3"/>
-  <text x="110" y="150" fill="#4a2c2a" font-family="Georgia" font-size="54">A table request, when ready</text>
-  <rect x="110" y="220" width="520" height="430" rx="24" fill="#fff" stroke="#d6d3d1"/>
-  <rect x="680" y="220" width="650" height="430" rx="24" fill="#fff" stroke="#d6d3d1"/>
-  <rect x="150" y="390" width="240" height="56" rx="28" fill="#25d366"/>
-  <text x="270" y="424" text-anchor="middle" fill="#fff" font-family="Arial" font-size="20">Request via WhatsApp</text>
-  <text x="720" y="790" text-anchor="middle" fill="#78716c" font-family="Arial" font-size="22">Reservation Screenshot Placeholder</text>
-</svg>

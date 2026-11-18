@@ -16,7 +16,7 @@
 |----------|-------|
 | Version | 1.0.0 |
 | Last Updated | 2026-11-17 |
-| Status | Local implementation complete; production verification pending |
+| Status | Static release live on GitHub Pages; post-deploy QA pending |
 | Owner | Ark Coffee & Eatery |
 | Framework | Astro 4.x |
 | Styling | Tailwind CSS 3.4 |

@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://arkantsabit123.github.io/Ark-Coffee-Eatery/sitemap.xml

@@ -16,7 +16,7 @@
 |----------|-------|
 | Version | 1.0.0 |
 | Last Updated | 2026-11-17 |
-| Status | Local copy implemented; production owner approval recorded |
+| Status | Approved copy implemented; live content verification recorded |
 | Owner | Ark Coffee & Eatery |
 | Companion Docs | `blueprint.md`, `design-system.md`, `cheatsheets.md`, `deployment-guide.md` |
 | Applies To | All on-page copy, menu descriptions, form labels, meta tags, and system messages |

@@ -36,6 +36,9 @@
 - Sheet sharing restricted to minimum required accounts.
 - Never place customer phone/name in GA4, URLs, console logs, public screenshots, or issue trackers.
 - Retention period **approved:** 12 months. Deletion workflow, access list, and formal owner assignment remain pending.
+- Public privacy policy: `src/pages/privacy.astro`.
+- Public sitemap: `public/sitemap.xml`.
+- Public social preview: `public/og-image.png`.
 - Test rows must be labeled and excluded from business metrics.
 - Backups and restore testing must be approved and documented; do not publicly share exported Sheet files.
 
