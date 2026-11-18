@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-11-18 — GitHub Pages release
+- Deployed the static Astro website to GitHub Pages.
+- Production URL: https://arkantsabit123.github.io/Ark-Coffee-Eatery/
+- GitHub Actions workflow run `44286318459` completed successfully.
+- Live page and HTTPS response verified.
+- Live reservation storage and analytics remain inactive.
+
 ## Unreleased — 2026-11-18 documentation and release preview
 - Configured GitHub Pages to use GitHub Actions as its deployment source.
 - Workflow permissions for Pages deployment are set to read and write.

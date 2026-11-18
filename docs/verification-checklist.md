@@ -14,14 +14,14 @@
 | Field | Value |
 |---|---|
 | Project | Ark Coffee & Eatery |
-| Release / commit | Initial implementation `07a844f`; documentation updates pending commit |
+| Release / commit | Live workflow commit `83f5335`; documentation follow-up pending commit |
 | QA owner | Not assigned |
 | Date | 2026-11-18 |
 | Local preview URL | `http://127.0.0.1:4321/` (local only) |
-| Production URL | Not deployed |
-| Hosting | GitHub Pages; GitHub Actions source selected; workflow read/write permissions enabled |
+| Production URL | https://arkantsabit123.github.io/Ark-Coffee-Eatery/ |
+| Hosting | GitHub Pages via GitHub Actions |
 | Browser / device | Integrated browser; 320, 375, 768, 1024, 1440 px |
-| Final decision | **CONDITIONAL GO — static frontend complete; live domain/canonical and host smoke remain pending** |
+| Final decision | **STATIC RELEASE LIVE — custom domain and analytics remain pending** |
 
 **Status key:** `[ ]` not tested / not passed; `[x]` passed. If a check fails or is blocked, leave it unchecked and register the result as **FAIL** or **BLOCKED** in the defect log. Mark an optional check **N/A** in the evidence log with a reason; do not mark it passed.
 
@@ -319,7 +319,7 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 
 | Test ID | Requirement | Procedure | Expected result | Priority | Status | Evidence |
 |---|---|---|---|---|---|---|
-| QA-001 | ARK-F01 | Inspect DOM and viewport widths at 320/375/768/1024/1440 | 11 regions, no overflow | P0 | PASS | `npm run test` (region order); integrated-browser metrics showed no overflow at all five widths; all in-page anchors resolve; 1440 px screenshot reviewed. |
+| QA-001 | ARK-F01 | Inspect DOM and viewport widths at 320/375/768/1024/1440 | 11 regions, no overflow | P0 | PASS | Local browser metrics passed at five widths; live URL returned HTTP 200 and rendered the page. |
 | QA-002 | ARK-F02 | Compare menu data to approved inventory | 4 categories / 14 approved items | P0 | PASS | Four categories and all 14 approved names, descriptions, and prices render in the static build. |
 | QA-003 | ARK-F03 | Inspect image manifest, licenses and rendering | 6 gallery images, no broken links | P0 | PASS | All 22 image elements load locally; license/asset ownership should remain documented before public release. |
 | QA-004 | ARK-F04 | Click every WhatsApp CTA on mobile/desktop | Approved number, correct message | P0 | PASS | CTAs use `6281295709620` and context-specific encoded WhatsApp messages. |
@@ -360,4 +360,4 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 ### Defect template
 `DEF-ID | severity (critical/high/medium/low) | reproduction steps | expected | actual | owner | fix SHA | retest evidence | status`
 
-**Current overall verdict:** `CONDITIONAL GO / STATIC-ONLY IMPLEMENTATION VERIFIED LOCALLY`. Business facts and menu are approved. Live reservation storage is intentionally inactive. No real website domain/canonical URL, deployed host, or production smoke test has been supplied.
+**Current overall verdict:** `STATIC RELEASE LIVE / CUSTOM DOMAIN AND POST-DEPLOY FULL QA PENDING`. Production URL: https://arkantsabit123.github.io/Ark-Coffee-Eatery/. GitHub Actions run `44286318459` completed successfully. Live reservation storage and analytics remain intentionally inactive.
