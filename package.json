@@ -1,0 +1,26 @@
+{
+  "name": "ark-coffee-eatery",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node --test",
+    "generate:concept-images": "node scripts/generate-concept-images.mjs"
+  },
+  "dependencies": {
+    "astro": "7.4.12"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@tailwindcss/vite": "4.3.5",
+    "tailwindcss": "4.3.5",
+    "typescript": "6.0.2"
+  },
+  "overrides": {
+    "picomatch": "4.0.7"
+  }
+}

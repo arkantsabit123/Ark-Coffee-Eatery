@@ -1,0 +1,33 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { site } from '../data/site';
+---
+
+<section id="location" data-page-region="location" class="section-space">
+  <div class="page-shell grid gap-10 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+    <div>
+      <SectionHeading
+        eyebrow="Location & hours"
+        title="Plan your visit"
+        description={`${site.address}. Open ${site.openingHours.toLowerCase()}.`}
+      />
+      <a
+        class="inline-flex min-h-11 items-center justify-center rounded-full border border-ark-brown/20 bg-white px-5 py-3 text-sm font-semibold text-ark-brown"
+        href={site.mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer">Open in Google Maps</a
+      >
+    </div>
+    <div class="min-h-72 rounded-3xl border border-ark-brown/10 bg-ark-cream-dark/50 p-8">
+      <p class="eyebrow">Opening hours</p>
+      <p class="mt-4 text-2xl font-semibold text-ark-brown">{site.openingHours}</p>
+      <p class="mt-8 text-sm font-semibold uppercase tracking-widest text-stone-600">Address</p>
+      <address class="mt-3 not-italic leading-8 text-stone-700">
+        {site.addressLines.map((line) => (
+          <span class="block">{line}</span>
+        ))}
+      </address>
+      <p class="mt-6 text-sm text-stone-600">Reservations close at {site.bookingCutoff}.</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+import { menuCategories, menuConceptItems } from '../data/menu';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section id="menu" data-page-region="menu" class="section-space bg-ark-cream-dark/50">
+  <div class="page-shell">
+    <SectionHeading
+      eyebrow="Signature menu"
+      title="A menu worth taking your time over"
+      description="Explore our coffee, non-coffee drinks, main courses, and pastries."
+    />
+    <div class="grid gap-5 md:grid-cols-2">
+      {menuCategories.map((category, index) => (
+        <article class="rounded-2xl border border-ark-brown/10 bg-ark-cream p-6 md:p-8">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="eyebrow">Category {String(index + 1).padStart(2, '0')}</p>
+              <h3 class="display-heading mt-3 text-3xl text-ark-brown">{category.name}</h3>
+            </div>
+          </div>
+          <div class="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {menuConceptItems
+              .filter((item) => item.categoryId === category.id)
+              .map((item) => (
+                <figure class="overflow-hidden rounded-xl border border-ark-brown/10 bg-white/70">
+                  <img
+                    class="aspect-[4/3] w-full object-cover"
+                    src={item.image}
+                    alt={item.name}
+                    width="800"
+                    height="600"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption class="p-3">
+                    <div class="flex items-start justify-between gap-3">
+                      <h4 class="font-semibold text-ark-brown">{item.name}</h4>
+                      <p class="shrink-0 text-sm font-semibold text-ark-brown">{item.price}</p>
+                    </div>
+                    <p class="mt-1 text-sm leading-6 text-stone-600">{item.description}</p>
+                  </figcaption>
+                </figure>
+              ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

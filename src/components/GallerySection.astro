@@ -1,0 +1,30 @@
+---
+import { gallerySlots } from '../data/gallery';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section id="gallery" data-page-region="gallery" class="section-space bg-ark-brown text-ark-cream">
+  <div class="page-shell">
+    <SectionHeading
+      eyebrow="Gallery"
+      title="A look around"
+      description="Discover the café interior, coffee, food, seating, and atmosphere."
+    />
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {gallerySlots.map((slot) => (
+        <figure id={slot.id} class="overflow-hidden rounded-2xl border border-ark-cream/15 bg-white/10">
+          <img
+            class="aspect-[4/3] w-full object-cover"
+            src={slot.image}
+            alt={slot.label}
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="px-4 py-3 text-sm text-ark-cream/85">{slot.label}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+export const site = {
+  name: 'Ark Coffee & Eatery',
+  language: 'en',
+  contentStatus: 'APPROVED',
+  address: 'Jl. Boulevard Palem Raya No. 38, Lippo Karawaci 1200, Curug, Neglasari, Kelapa Dua, Klp. Dua, Kecamatan Kelapa Dua, Kabupaten Tangerang, Banten 15810',
+  addressLines: [
+    'Jl. Boulevard Palem Raya No. 38',
+    'Lippo Karawaci 1200',
+    'Curug, Neglasari, Kelapa Dua',
+    'Klp. Dua, Kecamatan Kelapa Dua',
+    'Kabupaten Tangerang, Banten 15810',
+  ],
+  openingHours: 'Every day, 07:00–22:00',
+  bookingCutoff: '20:00',
+  whatsappNumber: '6281295709620',
+  instagramHandle: 'arkantsabiit',
+  instagramUrl: 'https://www.instagram.com/arkantsabiit/',
+  ownerEmail: 'arkantsabit025@gmail.com',
+  privacyContact: 'arkantsabit025@gmail.com',
+  reservationRetention: '12 months',
+  mapsUrl: 'https://www.google.com/maps/dir//Benton+Junction,+Jl.+Boulevard+Palem+Raya+No.+38,+Lippo+Karawaci+1200,+Curug,+Neglasari,+Kelapa+Dua,+Klp.+Dua,+Kecamatan+Kelapa+Dua,+Kabupaten+Tangerang,+Banten+15810/@-6.2286636,106.60656,1079m/data=!3m1!1e3!4m16!1m7!3m6!1s0x2e69fd909e9070df:0xb5120c674a188a23!2sBenton+Junction!8m2!3d-6.2286636!4d106.6091349!16s%2Fg%2F11g0vyqlmh!4m7!1m0!1m5!1m1!1s0x2e69fd909e9070df:0xb5120c674a188a23!2m2!1d106.6091349!2d-6.2286636',
+} as const;
+
+export const pageRegions = [
+  'navbar',
+  'hero',
+  'proof',
+  'features',
+  'menu',
+  'steps',
+  'gallery',
+  'location',
+  'faq',
+  'reservation',
+  'footer',
+] as const;

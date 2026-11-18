@@ -1,0 +1,13 @@
+---
+import { site } from '../data/site';
+---
+
+<a
+  class="fixed bottom-5 right-5 z-40 inline-flex min-h-14 min-w-14 items-center justify-center rounded-full bg-ark-whatsapp px-5 py-4 text-sm font-semibold text-white shadow-lg md:hidden"
+  href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hello Ark Coffee & Eatery.')}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Contact Ark Coffee & Eatery on WhatsApp"
+>
+  WhatsApp
+</a>

@@ -1,0 +1,38 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { site } from '../data/site';
+---
+
+<section id="reservations" data-page-region="reservation" class="section-space">
+  <div class="page-shell grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+    <div>
+      <SectionHeading
+        eyebrow="Reservation request"
+        title="A table request, when ready"
+        description="Reservation requests are handled through WhatsApp. No automatic confirmation or live table inventory is used."
+      />
+      <p class="max-w-md leading-7 text-stone-600">
+        Reservation inquiries received through WhatsApp are retained according to the approved {site.reservationRetention} retention period.
+        Requests received after {site.bookingCutoff} are for a later time.
+      </p>
+      <a
+        class="mt-6 inline-flex min-h-12 items-center justify-center rounded-full bg-ark-whatsapp px-6 py-3 font-semibold text-white"
+        href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hello Ark Coffee & Eatery, I would like to request a table reservation.')}`}
+        target="_blank"
+        rel="noopener noreferrer">Request via WhatsApp</a
+      >
+      <p class="mt-4 max-w-md text-sm leading-6 text-stone-600">
+        Privacy contact: <a class="underline" href={`mailto:${site.privacyContact}`}>{site.privacyContact}</a>
+      </p>
+    </div>
+    <div class="rounded-3xl border border-ark-brown/10 bg-white/75 p-6 md:p-8">
+      <p class="eyebrow">Before messaging</p>
+      <ul class="mt-5 space-y-4 text-stone-700">
+        <li>Include your preferred date and time.</li>
+        <li>Include your party size.</li>
+        <li>Include any seating notes.</li>
+        <li>The café must confirm availability. A WhatsApp request is not an automatic booking.</li>
+      </ul>
+    </div>
+  </div>
+</section>

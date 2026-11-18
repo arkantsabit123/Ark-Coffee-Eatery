@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ark-cream: #fdf8f3;
+  --color-ark-cream-dark: #f5e6d3;
+  --color-ark-brown: #4a2c2a;
+  --color-ark-brown-dark: #3a1f1d;
+  --color-ark-amber: #d97706;
+  --color-ark-amber-light: #fef3c7;
+  --color-ark-whatsapp: #25d366;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+  background: #fdf8f3;
+  color: #29211f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 20rem;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 86% 12%, rgb(245 230 211 / 46%), transparent 29rem),
+    #fdf8f3;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #9a5d19;
+  outline-offset: 3px;
+}
+
+::selection {
+  background: #f0d7b6;
+  color: #3a1f1d;
+}
+
+.page-shell {
+  width: min(100% - 2rem, 75rem);
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-block: 4.5rem;
+}
+
+.eyebrow {
+  color: #79513d;
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.display-heading {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+
+.nav-links {
+  display: none;
+}
+
+.nav-links.is-open {
+  position: absolute;
+  inset: calc(100% + 0.5rem) 0 auto;
+  z-index: 20;
+  display: grid;
+  gap: 0.25rem;
+  border: 1px solid rgb(74 44 42 / 12%);
+  border-radius: 1rem;
+  background: #fdf8f3;
+  padding: 0.75rem;
+  box-shadow: 0 1rem 2rem rgb(74 44 42 / 12%);
+}
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 30;
+  display: none;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+
+@media (min-width: 48rem) {
+  .section-space {
+    padding-block: 5rem;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .back-to-top.is-visible {
+    display: inline-flex;
+  }
+
+  .hero-art {
+    min-height: 32rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .section-space {
+    padding-block: 6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

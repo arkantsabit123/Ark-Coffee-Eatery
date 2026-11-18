@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = site.name,
+  description = 'Ark Coffee & Eatery in Tangerang serves coffee and comfort food. View the menu, opening hours, location, and contact information.',
+} = Astro.props;
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'CafeOrCoffeeShop',
+  name: site.name,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.addressLines.join(', '),
+    addressLocality: 'Kabupaten Tangerang',
+    addressRegion: 'Banten',
+    postalCode: '15810',
+    addressCountry: 'ID',
+  },
+  telephone: `+${site.whatsappNumber}`,
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '07:00',
+    closes: '22:00',
+  }],
+  sameAs: [site.instagramUrl],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#fdf8f3" />
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <script type="application/ld+json" set:html={JSON.stringify(localBusiness)}></script>
+    <title>{title}</title>
+  </head>
+  <body>
+    <a
+      class="sr-only z-50 rounded-lg bg-ark-brown px-4 py-3 text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      href="#main-content">Skip to content</a
+    >
+    <slot />
+  </body>
+</html>

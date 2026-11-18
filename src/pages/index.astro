@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ProofSection from '../components/ProofSection.astro';
+import FeaturesSection from '../components/FeaturesSection.astro';
+import MenuSection from '../components/MenuSection.astro';
+import StepsSection from '../components/StepsSection.astro';
+import GallerySection from '../components/GallerySection.astro';
+import LocationSection from '../components/LocationSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import ReservationSection from '../components/ReservationSection.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import BackToTop from '../components/BackToTop.astro';
+import StickyWhatsApp from '../components/StickyWhatsApp.astro';
+---
+
+<BaseLayout>
+  <SiteHeader />
+  <main id="main-content">
+    <HeroSection />
+    <ProofSection />
+    <FeaturesSection />
+    <MenuSection />
+    <StepsSection />
+    <GallerySection />
+    <LocationSection />
+    <FaqSection />
+    <ReservationSection />
+  </main>
+  <SiteFooter />
+  <StickyWhatsApp />
+  <BackToTop />
+</BaseLayout>

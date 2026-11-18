@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title={`Page not found | ${site.name}`}>
+  <main class="page-shell grid min-h-screen content-center py-16">
+    <p class="eyebrow">404 · Page not found</p>
+    <h1 class="display-heading mt-4 text-5xl text-ark-brown">This page isn’t here</h1>
+    <p class="mt-4 max-w-xl leading-7 text-stone-600">
+      The page may have moved. Return to the Ark Coffee &amp; Eatery website.
+    </p>
+    <a
+      class="mt-7 inline-flex min-h-12 w-fit items-center justify-center rounded-full bg-ark-brown px-6 py-3 font-semibold text-white"
+      href="/">Back to home</a
+    >
+  </main>
+</BaseLayout>

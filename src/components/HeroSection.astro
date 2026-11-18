@@ -1,0 +1,43 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="home" data-page-region="hero" class="section-space overflow-hidden">
+  <div class="page-shell grid items-center gap-12 md:grid-cols-[1.05fr_0.95fr]">
+    <div class="max-w-2xl">
+      <p class="eyebrow mb-5">{site.name}</p>
+      
+      <h1 class="display-heading max-w-xl text-5xl leading-[1.04] text-ark-brown md:text-6xl lg:text-7xl">
+        Specialty coffee, comfort food
+      </h1>
+
+      <p class="mt-6 max-w-xl text-lg leading-8 text-stone-600">
+        Explore our coffee, comfort food, and café atmosphere in Tangerang.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          class="inline-flex min-h-12 items-center justify-center rounded-full bg-ark-whatsapp px-6 py-3 font-semibold text-white transition-colors hover:brightness-95"
+          href={`https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent('Hello Ark Coffee & Eatery, I would like to ask about the menu.')}`}
+          target="_blank"
+          rel="noopener noreferrer">Order via WhatsApp</a
+        >
+        <a
+          class="inline-flex min-h-12 items-center justify-center rounded-full border border-ark-brown/20 bg-white px-6 py-3 font-semibold text-ark-brown transition-colors hover:bg-ark-cream-dark"
+          href="#menu">View menu</a
+        >
+      </div>
+    </div>
+
+    <img
+      class="aspect-[3/2] w-full rounded-3xl border border-ark-brown/10 object-cover shadow-2xl"
+      src="/images/hero/hero-cafe.jpg"
+      alt="Warm interior atmosphere of Ark Coffee & Eatery"
+      width="1200"
+      height="800"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const questions = [
+  {
+    question: 'Where is Ark Coffee & Eatery?',
+    answer: 'Jl. Boulevard Palem Raya No. 38, Lippo Karawaci 1200, Curug, Neglasari, Kelapa Dua, Klp. Dua, Kecamatan Kelapa Dua, Kabupaten Tangerang, Banten 15810.',
+  },
+  {
+    question: 'When are you open?',
+    answer: 'We are open every day from 07:00 to 22:00.',
+  },
+  {
+    question: 'What can I order?',
+    answer: 'The menu includes coffee, non-coffee drinks, main courses, and pastries.',
+  },
+  {
+    question: 'Can I reserve a table?',
+    answer: 'Please contact us on WhatsApp to request a table. Reservation requests close at 20:00.',
+  },
+  {
+    question: 'How can I contact the café?',
+    answer: 'Message us on WhatsApp or follow @arkantsabiit on Instagram.',
+  },
+];
+---
+
+<section id="faq" data-page-region="faq" class="section-space bg-white/50">
+  <div class="page-shell max-w-4xl">
+    <SectionHeading
+      eyebrow="Frequently asked questions"
+      title="What to know before you go"
+      description="Quick answers about location, hours, menu, reservations, and contact."
+    />
+    <div class="divide-y divide-ark-brown/10 border-y border-ark-brown/10">
+      {questions.map((item) => (
+        <details class="group py-5">
+          <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-6 text-left font-semibold text-ark-brown marker:hidden">
+            {item.question}
+            <span aria-hidden="true" class="text-xl text-ark-amber transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <p class="max-w-2xl pb-2 pr-8 leading-7 text-stone-600">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

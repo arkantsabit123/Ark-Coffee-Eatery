@@ -1,0 +1,29 @@
+---
+import SectionHeading from './SectionHeading.astro';
+
+const cards = [
+  { number: '01', title: 'Coffee', description: 'Espresso-based drinks and Kopi Susu Gula Aren.' },
+  { number: '02', title: 'Comfort food', description: 'Main courses and freshly baked pastries.' },
+  { number: '03', title: 'Café atmosphere', description: 'A warm setting for coffee, food, and conversation.' },
+  { number: '04', title: 'Plan a visit', description: 'Open every day from 07:00 to 22:00.' },
+];
+---
+
+<section id="features" data-page-region="features" class="section-space">
+  <div class="page-shell">
+    <SectionHeading
+      eyebrow="At a glance"
+      title="The details make the difference"
+      description="Coffee, comfort food, and a warm café atmosphere."
+    />
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {cards.map((card) => (
+        <article class="rounded-2xl border border-ark-brown/10 bg-white/70 p-6">
+          <p class="font-display text-3xl text-ark-amber">{card.number}</p>
+          <h3 class="mt-6 text-lg font-semibold text-ark-brown">{card.title}</h3>
+          <p class="mt-2 text-sm leading-6 text-stone-600">{card.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
