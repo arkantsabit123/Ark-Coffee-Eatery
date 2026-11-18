@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased — 2026-11-18 documentation and release preview
+- Configured GitHub Pages to use GitHub Actions as its deployment source.
 - Configured the Astro project base and canonical URL for GitHub Pages.
 - Added a GitHub Actions deployment workflow for pushes to `main`.
 - Added 7 SVG README screenshot placeholders and live preview documentation.

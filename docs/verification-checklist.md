@@ -19,7 +19,7 @@
 | Date | 2026-11-18 |
 | Local preview URL | `http://127.0.0.1:4321/` (local only) |
 | Production URL | Not deployed |
-| Hosting | GitHub Pages; repository Pages setting pending |
+| Hosting | GitHub Pages; GitHub Actions source selected |
 | Browser / device | Integrated browser; 320, 375, 768, 1024, 1440 px |
 | Final decision | **CONDITIONAL GO — static frontend complete; live domain/canonical and host smoke remain pending** |
 
