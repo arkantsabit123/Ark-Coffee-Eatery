@@ -4,7 +4,7 @@
 
 ## 2026-11-18 implementation evidence
 - `npm run check`: pass with 0 diagnostics.
-- `npm run build`: pass with 2 static routes.
+- `npm run build`: pass with 3 static routes, including the privacy page.
 - `npm run test`: pass with 5 static acceptance tests.
 - Browser: no horizontal overflow checked at 320, 375, 768, 1024, and 1440 px.
 - Browser: all 22 page image elements load after scrolling.

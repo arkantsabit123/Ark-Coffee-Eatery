@@ -14,14 +14,14 @@
 | Field | Value |
 |---|---|
 | Project | Ark Coffee & Eatery |
-| Release / commit | Live implementation `83f5335`; final documentation/screenshot commit pending |
+| Release / commit | `71bde55` — privacy, SEO, screenshot, and documentation release |
 | QA owner | Not assigned |
 | Date | 2026-11-18 |
 | Local preview URL | `http://127.0.0.1:4321/` (local only) |
 | Production URL | https://arkantsabit123.github.io/Ark-Coffee-Eatery/ |
 | Hosting | GitHub Pages via GitHub Actions |
 | Browser / device | Integrated browser; 320, 375, 768, 1024, 1440 px |
-| Final decision | **STATIC RELEASE LIVE — custom domain and analytics remain pending** |
+| Final decision | **STATIC RELEASE LIVE — custom domain, full accessibility audit, and analytics remain pending** |
 
 **Status key:** `[ ]` not tested / not passed; `[x]` passed. If a check fails or is blocked, leave it unchecked and register the result as **FAIL** or **BLOCKED** in the defect log. Mark an optional check **N/A** in the evidence log with a reason; do not mark it passed.
 
@@ -329,8 +329,8 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 | QA-008 | ARK-F08 | Simulate network and backend errors | No false success, WhatsApp fallback | P0 | PASS | No form submission claims success; WhatsApp remains the direct fallback. |
 | QA-009 | ARK-F09 | Owner sign-off for address/hours/phone/menu | No placeholder facts | P0 | PASS | Address, hours, cutoff, WhatsApp, Instagram, menu, and privacy contact are recorded as owner-approved. |
 | QA-010 | ARK-N01 | Keyboard, screen-reader, axe, zoom, reduced motion | No critical accessibility defects | P0 | NOT_RUN | Browser check verified mobile navigation open/Escape, FAQ disclosure, reservation guidance, and responsive layouts; full screen-reader and axe audit remain. |
-| QA-011 | ARK-N02 | Inspect canonical/OG/JSON-LD/sitemap | Only approved facts and URLs | P1 | PASS | GitHub Pages canonical, OG/Twitter metadata, 1200x630 social preview, JSON-LD, robots, and sitemap are configured; live social-crawler rendering should be rechecked after deployment. |
-| QA-012 | ARK-N03 | Run local check/build/tests; attach CI for release SHA when available | Check/build/tests green | P0 | PASS | `npm run check` (0 diagnostics), `npm run build` (2 static routes), `npm run test` (5/5 pass). No CI/release SHA exists yet. |
+| QA-011 | ARK-N02 | Inspect canonical/OG/JSON-LD/sitemap | Only approved facts and URLs | P1 | PASS | GitHub Pages canonical, OG/Twitter metadata, 1200x630 social preview, JSON-LD, robots, and sitemap are live; homepage, privacy, sitemap, robots, and OG asset returned HTTP 200. |
+| QA-012 | ARK-N03 | Run local check/build/tests; attach CI for release SHA when available | Check/build/tests green | P0 | PASS | `npm run check` (0 diagnostics), `npm run build` (3 static routes), `npm run test` (7/7 pass). GitHub Actions deployment succeeded. |
 | QA-013 | ARK-F10 | Inspect GA4 DebugView and payload | Events work, no names/phones | P1 | BLOCKED | Analytics is not approved or configured; no tracking requests are sent. |
 | QA-014 | SEC-01 | Test spam, formula injection, size limit, rate limiting | Invalid/abusive payloads rejected | P0 | BLOCKED | No reservation backend exists to test; form controls are disabled. |
 | QA-015 | OPS-01 | Disable backend and rehearse rollback | Recovery path and fallback verified | P0 | BLOCKED | No staging or production deployment exists. |
@@ -360,4 +360,4 @@ These are **documentation conflicts or assumptions**, not confirmed application 
 ### Defect template
 `DEF-ID | severity (critical/high/medium/low) | reproduction steps | expected | actual | owner | fix SHA | retest evidence | status`
 
-**Current overall verdict:** `STATIC RELEASE LIVE / CUSTOM DOMAIN AND POST-DEPLOY FULL QA PENDING`. Production URL: https://arkantsabit123.github.io/Ark-Coffee-Eatery/. GitHub Actions run `44286318459` completed successfully. Live reservation storage and analytics remain intentionally inactive.
+**Current overall verdict:** `STATIC RELEASE LIVE / FULL POST-DEPLOY QA PENDING`. Production URL: https://arkantsabit123.github.io/Ark-Coffee-Eatery/. Release commit: `71bde55`. Homepage, privacy, sitemap, robots, OG image, 404, and representative assets return HTTP 200. Live reservation storage and analytics remain intentionally inactive.
